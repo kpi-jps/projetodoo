@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.vettodos.application.repository.sqlite.FabricaDeConexao;
 import com.vettodos.model.domain.entities.endereco.Cidade;
 import com.vettodos.model.domain.entities.endereco.Endereco;
 import com.vettodos.model.domain.entities.endereco.Estado;
