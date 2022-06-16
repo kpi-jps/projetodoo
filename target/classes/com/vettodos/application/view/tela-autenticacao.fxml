@@ -4,45 +4,36 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #07076e;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #07076e;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vettodos.application.controller.AutenticarUsuarioController">
    <top>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="223.0" fitWidth="417.0" layoutX="108.0" layoutY="7.0">
-               <image>
-                  <Image url="@img/logo.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="logo" fitHeight="223.0" fitWidth="417.0" layoutX="108.0" layoutY="7.0"/>
          </children>
       </AnchorPane>
    </top>
    <bottom>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="67.0" fitWidth="51.0" layoutX="109.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@img/lock.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="cadeado" fitHeight="67.0" fitWidth="51.0" layoutX="109.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true"/>
             <Label layoutX="180.0" layoutY="37.0" text="E-mail:" textAlignment="RIGHT" textFill="WHITE">
                <font>
                   <Font size="27.0" />
                </font>
             </Label>
-            <TextField fx:id="txt_email" layoutX="275.0" layoutY="35.0" prefHeight="32.0" prefWidth="180.0" promptText="contato@email.com" />
+            <TextField fx:id="txtEmail" layoutX="275.0" layoutY="35.0" prefHeight="32.0" prefWidth="180.0" promptText="contato@email.com" />
             <Label layoutX="188.0" layoutY="81.0" text="Senha:" textAlignment="RIGHT" textFill="WHITE">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <PasswordField fx:id="txt_senha" layoutX="276.0" layoutY="86.0" prefHeight="29.0" prefWidth="179.0" promptText="Ex. 1234" />
-            <Button fx:id="button_entrar" layoutX="356.0" layoutY="128.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="99.0" style="-fx-background-color: #ffffff;" text="Entrar" textFill="#07076e">
+            <PasswordField fx:id="txtSenha" layoutX="276.0" layoutY="86.0" prefHeight="29.0" prefWidth="179.0" promptText="Ex. 1234" />
+            <Button fx:id="btnAutenticar" layoutX="356.0" layoutY="128.0" mnemonicParsing="false" onAction="#autenticar" prefHeight="18.0" prefWidth="99.0" style="-fx-background-color: #ffffff;" text="Entrar" textFill="#07076e">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

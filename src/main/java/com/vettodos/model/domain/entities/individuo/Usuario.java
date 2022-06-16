@@ -12,7 +12,10 @@ public class Usuario {
     private boolean status;
 
     
-
+    public Usuario(String email, String nome, String telefone, boolean status) {
+        this(null, email, nome, telefone, status);
+    }
+    
     public Usuario(Long id, String email, String nome, String telefone, boolean status) {
         this.id = id;
         this.email = email;

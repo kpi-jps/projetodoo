@@ -27,11 +27,11 @@ public class SQLUsuarioDAO implements UsuarioDAO {
         int status = rs.getInt("status");
         String registroProfissional = rs.getString("registro_profissional");
         if(credencial.equals(Credencial.VETERINARIO.getNomeCredencial()) && registroProfissional == null) {
-            if(status == 0) return new Veterinario(id, nome, email, telefone, false, registroProfissional);
-            return new Veterinario(id, nome, email, telefone, true, registroProfissional);
+            if(status == 0) return new Veterinario(id, email, nome, telefone, false, registroProfissional);
+            return new Veterinario(id, email, nome, telefone, true, registroProfissional);
         } 
-        if(status == 0) return new Usuario(id, nome, email, telefone, false);
-        return  new Usuario(id, nome, email, telefone, true);
+        if(status == 0) return new Usuario(id, email, nome, telefone, false);
+        return  new Usuario(id, email, nome, telefone, true);
 
     }
 
@@ -119,24 +119,19 @@ public class SQLUsuarioDAO implements UsuarioDAO {
     }
 
     @Override
-    public Optional<Usuario> autenticar(String email, String senha) {
-        Usuario usuario = null;
+    public boolean autenticar(String email, String senha) {
         String hashSenha = null;
         String sql = "SELECT * FROM usuario WHERE email LIKE ?;";
         try (PreparedStatement ps =  FabricaDeConexao.criaPreparedStatement(sql)) {
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                usuario = retornaUsuario(rs);
                 hashSenha = rs.getString("hash_senha");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(usuario != null && Encripitador.checarSenha(senha, hashSenha)) 
-            return Optional.ofNullable(usuario);
-        return Optional.empty();
+        return Encripitador.checarSenha(senha, hashSenha);
     }
-
     
 }

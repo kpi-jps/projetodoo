@@ -17,7 +17,7 @@ public interface UsuarioDAO {
 
    void trocarSenha(Long id, String novaSenha);
 
-   Optional<Usuario> autenticar(String email, String senha);
+   boolean autenticar(String email, String senha);
    /*
    Esse método só será implementado quando a persistência ocorrer em banco de dados
    void editarSenha(String email, String senha);

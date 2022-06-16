@@ -4,7 +4,11 @@ public class Veterinario extends Usuario{
     
     private String registroProfissional;
 
-    public Veterinario(Long id, String nome, String email, String telefone, boolean status,String registroProfissional) {
+    public Veterinario ( String email, String nome, String telefone, boolean status,String registroProfissional) {
+        this(null, email, nome, telefone, status, registroProfissional);
+    }
+    
+    public Veterinario(Long id, String email, String nome, String telefone, boolean status,String registroProfissional) {
         super(id, email, nome, telefone, status);
         this.registroProfissional = registroProfissional;
         this.setCredencial(Credencial.VETERINARIO);
