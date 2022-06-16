@@ -13,24 +13,22 @@ import javafx.scene.image.ImageView;
 import static com.vettodos.Main.*;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 
-import com.vettodos.Main;
 import com.vettodos.application.view.InicializadorDeTelas;
+import com.vettodos.model.domain.entities.individuo.Veterinario;
 
 
 public class AutenticarUsuarioController {
-    @FXML
-    ImageView logo;
 
+    @FXML
+    private ImageView logo;
     @FXML
     ImageView cadeado;
-
     @FXML
     private Button btnAutenticar;
-
     @FXML
     private TextField txtEmail;
-
     @FXML
     private PasswordField txtSenha;
 
@@ -44,15 +42,25 @@ public class AutenticarUsuarioController {
         cadeado.setImage(imagemCadeado);
     }
 
-    public void autenticar(ActionEvent evento) {
+    public void autenticar(ActionEvent evento) throws Exception {
         String email = txtEmail.getText();
         String senha = txtSenha.getText();
         try {
-            usuarioAutenticado = autenticarUsuario.autenticar(email, senha);
+            usuarioAutenticado = autenticarUsuario.autenticar(email, senha);            
+            if(usuarioAutenticado instanceof Veterinario) {
+                usuarioAutenticado = (Veterinario) usuarioAutenticado;
+                InicializadorDeTelas.setRoot("tela-principal-veterinario");
+            } else {
+                InicializadorDeTelas.setRoot("tela-principal-usuario");
+            }
+            
         } catch (Exception e) {
+            //e.printStackTrace();
+            if(e instanceof IOException) throw e;
             alerta("Erro de autenticação", e.getMessage(), AlertType.ERROR);
         }
     }
+
 
     private void alerta(String title, String message, Alert.AlertType type){
         Alert alert = new Alert(type);

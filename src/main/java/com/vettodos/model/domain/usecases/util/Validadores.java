@@ -37,7 +37,7 @@ public abstract class Validadores {
 
     public static boolean validaNumero(String numero) {
         try {
-            if(Integer.parseInt(numero) == 0) return false;
+            int n = Integer.parseInt(numero);
         } catch (NumberFormatException e) {
             return false;
         }

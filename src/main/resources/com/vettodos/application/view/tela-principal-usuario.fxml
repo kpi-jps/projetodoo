@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:controller="com.vettodos.application.controller.UsuarioController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #AFEEEE;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="1800.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="logo" fitHeight="83.0" fitWidth="169.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+            <Label layoutX="214.0" layoutY="52.0" text="Bem vindo Usuário" textFill="#07076e" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="45.0">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnEditarUsuario" onAction="#editarUsuario" layoutX="20.0" layoutY="120.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #07076e;" text="Editar Usuario" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="160.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEditarProduto" onAction="#editarProduto" layoutX="384.0" layoutY="124.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #07076e;" text="Editar Produto" textFill="WHITE" AnchorPane.leftAnchor="530.0" AnchorPane.topAnchor="160.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEditarTutor" onAction="#editarTutor" layoutX="253.0" layoutY="122.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #07076e;" text="Editar Tutor" textFill="WHITE" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="160.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCadastrarUsuario" onAction="#cadastrarUsuario" layoutX="30.0" layoutY="180.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #07076e;" text="Cadastrar Usuario" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="120.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCadastrarTutor" onAction="#cadastrarTutor" layoutX="30.0" layoutY="130.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #07076e;" text="Cadastrar Tutor" textFill="WHITE" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="120.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCadastrarProduto" onAction="#cadastrarProduto" layoutX="370.0" layoutY="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #07076e;" text="Cadastrar Produto" textFill="WHITE" AnchorPane.leftAnchor="530.0" AnchorPane.topAnchor="120.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEditarAnimal" onAction="#editarAnimal" layoutX="370.0" layoutY="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #07076e;" text="Editar Animal" textFill="WHITE" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="160.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCadastrarAnimal" onAction="#cadastrarAnimal" layoutX="540.0" layoutY="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #07076e;" text="Cadastrar Animal" textFill="WHITE" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="120.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnGerenciarEstoque" onAction="#gerenciarEstoque" layoutX="540.0" layoutY="130.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #07076e;" text="Estoque" textFill="WHITE" AnchorPane.leftAnchor="700.0" AnchorPane.topAnchor="120.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="infoUsuario" layoutX="34.0" layoutY="219.0" text="Info usuario" textFill="#07076e" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="210.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </AnchorPane>
+   </left>
+</BorderPane>

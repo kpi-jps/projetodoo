@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #AFEEEE;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="400.0" prefWidth="603.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="7.0" layoutY="7.0" prefHeight="51.0" prefWidth="336.0" text="Cadastro Produto" textFill="#07076e">
+               <font>
+                  <Font name="System Bold" size="38.0" />
+               </font>
+            </Label>
+            <Label layoutX="17.0" layoutY="77.0" text="Categoria:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="comboBox_especieAnimal" layoutX="90.0" layoutY="75.0" prefHeight="28.0" prefWidth="355.0" style="-fx-background-color: #07076e; -fx-text-fill: #07076e;" />
+            <Label layoutX="38.0" layoutY="135.0" text="Nome:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text_nomeAnimal" layoutX="89.0" layoutY="132.0" prefHeight="30.0" prefWidth="358.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label layoutX="15.0" layoutY="223.0" text="Descrição:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextArea layoutX="90.0" layoutY="185.0" prefHeight="100.0" prefWidth="358.0" />
+            <Label layoutX="15.0" layoutY="304.0" text="Unidade de Medida:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="comboBox_porteAnimal" layoutX="155.0" layoutY="301.0" prefHeight="28.0" prefWidth="84.0" style="-fx-background-color: #07076e; -fx-text-fill: #07076e;" />
+            <Label layoutX="251.0" layoutY="303.0" text="Mínimo em estoque:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text_anoNascimentoAnimal" layoutX="390.0" layoutY="299.0" prefHeight="30.0" prefWidth="54.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Button fx:id="button_cancelarCadastroTutor" layoutX="399.0" layoutY="355.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="90.0" style="-fx-background-color: #07076e;" text="Cancelar" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="button_salvarCadastroTutor" layoutX="500.0" layoutY="356.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="89.0" style="-fx-background-color: #07076e;" text="Salvar" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="125.0" fitWidth="126.0" layoutX="464.0" layoutY="123.0">
+               <image>
+                  <Image url="@img/produto-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

@@ -38,16 +38,16 @@ public class CriadorBancoDeDados {
 
     private static void criarUsuarioInicial() throws SQLException {
         try (Statement stmt = FabricaDeConexao.criaStatement()){
-            String hashSenha = Encripitador.encripitar("@adm");
+            String hashSenha = Encripitador.encripitar("@vettodos");
             String insertUsuario = "INSERT INTO usuario  (\n" +
                                     "email, hash_senha, nome, telefone, credencial, status, registro_profissional)" + "\n" + 
-                                    "VALUES ('adm@email.com', '" + hashSenha + "', 'Trocar Nome', '9999999999', 'A', 1, null" + 
+                                    "VALUES ('vettodos@email.com', '" + hashSenha + "', 'Clínica Vettodos', '9999999999', 'A', 1, null" + 
                                     ") \n";
             stmt.addBatch(insertUsuario);
             System.out.println("\n Criando usuário inicial! \n");
             System.out.println(insertUsuario);
-            System.out.println("login: adm@email.com");
-            System.out.println("senha: @adm");
+            System.out.println("login: vettodos@email.com");
+            System.out.println("senha: @vettodos");
             stmt.executeBatch();
         }  catch (SQLException e) {
             throw e;

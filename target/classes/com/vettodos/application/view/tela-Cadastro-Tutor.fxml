@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #AFEEEE;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="603.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="7.0" layoutY="-2.0" prefHeight="51.0" prefWidth="336.0" text="Cadastro Tutor" textFill="#07076e">
+               <font>
+                  <Font name="System Bold" size="38.0" />
+               </font>
+            </Label>
+            <Label layoutX="43.0" layoutY="57.0" text="Nome:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text_nomeTutor" layoutX="99.0" layoutY="48.0" prefHeight="30.0" prefWidth="344.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label layoutX="41.0" layoutY="93.0" text="E-mail:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text_emailTutor" layoutX="98.0" layoutY="84.0" prefHeight="30.0" prefWidth="345.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label layoutX="56.0" layoutY="127.0" text="CPF:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text_cpfTutor" layoutX="99.0" layoutY="120.0" prefHeight="30.0" prefWidth="345.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label layoutX="23.0" layoutY="161.0" text="Telefone:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text_telefoneTutor" layoutX="99.0" layoutY="156.0" prefHeight="30.0" prefWidth="346.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label layoutX="14.0" layoutY="186.0" text="Endereço" textFill="#07076e">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="218.0" text="Logradouro:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text_logradouroTutor" layoutX="100.0" layoutY="207.0" prefHeight="30.0" prefWidth="346.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label layoutX="34.0" layoutY="256.0" text="Número:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text_numeroTutor" layoutX="100.0" layoutY="247.0" prefHeight="30.0" prefWidth="76.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label layoutX="184.0" layoutY="256.0" text="Complemento:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text_complementoTutor" layoutX="287.0" layoutY="246.0" prefHeight="30.0" prefWidth="159.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label layoutX="64.0" layoutY="293.0" text="CEP:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text_cepTutor" layoutX="100.0" layoutY="285.0" prefHeight="30.0" prefWidth="76.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label layoutX="234.0" layoutY="293.0" text="Estado:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="comboBox_estadoTutor" layoutX="287.0" layoutY="285.0" prefHeight="28.0" prefWidth="158.0" style="-fx-background-color: #07076e;" />
+            <Label layoutX="44.0" layoutY="329.0" text="Cidade:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="comboBox_cidadeTutor" layoutX="100.0" layoutY="322.0" prefHeight="28.0" prefWidth="345.0" style="-fx-background-color: #07076e; -fx-text-fill: #07076e;" />
+            <Button fx:id="button_adicionarAnimalCadastroTutor" layoutX="19.0" layoutY="358.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="138.0" style="-fx-background-color: #07076e;" text="Adicionar Animal" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="button_cancelarCadastroTutor" layoutX="403.0" layoutY="359.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="90.0" style="-fx-background-color: #07076e;" text="Cancelar" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="button_salvarCadastroTutor" layoutX="502.0" layoutY="359.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="89.0" style="-fx-background-color: #07076e;" text="Salvar" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="125.0" fitWidth="126.0" layoutX="466.0" layoutY="109.0">
+               <image>
+                  <Image url="@img/tutor.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #AFEEEE;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="603.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="7.0" layoutY="-2.0" prefHeight="51.0" prefWidth="336.0" text="Cadastro Usuário" textFill="#07076e">
+               <font>
+                  <Font name="System Bold" size="38.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="69.0" text="Nome:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text_nomeUsuario" layoutX="81.0" layoutY="62.0" prefHeight="30.0" prefWidth="284.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label layoutX="28.0" layoutY="123.0" text="E-mail:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text_emailUsuario" layoutX="81.0" layoutY="116.0" prefHeight="30.0" prefWidth="285.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label layoutX="30.0" layoutY="179.0" text="Senha:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="text_senhaUsuario" layoutX="80.0" layoutY="172.0" prefHeight="30.0" prefWidth="285.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </PasswordField>
+            <Label layoutX="12.0" layoutY="233.0" text="Telefone:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text_telefoneUsuario" layoutX="79.0" layoutY="226.0" prefHeight="30.0" prefWidth="287.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Label layoutX="15.0" layoutY="276.0" text="Credencial:" textFill="#07076e">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="checkBox_credencialAdminitrador" layoutX="18.0" layoutY="312.0" mnemonicParsing="false" style="-fx-text-fill: #07076e;" text="Administrador" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="160.0" layoutY="312.0" mnemonicParsing="false" style="-fx-text-fill: #07076e;" text="Veterinário" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </CheckBox>
+            <Label layoutX="265.0" layoutY="311.0" text="|" textFill="#07076e">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="278.0" layoutY="311.0" text="Registro Profissional:" textFill="#07076e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField layoutX="423.0" layoutY="308.0" prefHeight="26.0" prefWidth="158.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Button layoutX="184.0" layoutY="359.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="81.0" style="-fx-background-color: #07076e;" text="Cancelar" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="306.0" layoutY="359.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="89.0" style="-fx-background-color: #07076e;" text="Salvar" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="126.0" fitWidth="182.0" layoutX="411.0" layoutY="92.0">
+               <image>
+                  <Image url="@img/user-icon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

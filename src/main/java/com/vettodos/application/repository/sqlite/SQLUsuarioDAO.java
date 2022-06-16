@@ -71,8 +71,8 @@ public class SQLUsuarioDAO implements UsuarioDAO {
     @Override
     public void salvar(Usuario usuario, String senha) {
         String sql = "INSERT INTO usuario("+
-            "email, hash_senha, nome, telefone, credencial, registro_profissional)" + 
-            "VALUES (?, ?, ?, ?, ?, ?);";
+            "email, hash_senha, nome, telefone, credencial, status, registro_profissional)" + 
+            "VALUES (?, ?, ?, ?, ?, 1, ?);";
         try (PreparedStatement ps = FabricaDeConexao.criaPreparedStatement(sql)) {
             ps.setString(1, usuario.getEmail());
             ps.setString(2, Encripitador.encripitar(senha));
