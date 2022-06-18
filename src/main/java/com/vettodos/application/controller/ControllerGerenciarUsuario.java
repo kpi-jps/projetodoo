@@ -99,7 +99,7 @@ public class ControllerGerenciarUsuario {
         checkboxVeterinario.setVisible(false);
         if(usuarioSelecionado instanceof Veterinario) setRegistroProfissionalVisivel();
         else setRegistroProfissionalInvisivel();
-        setDadosUsuario(usuarioSelecionado);
+        setDados(usuarioSelecionado);
 
     }
 
@@ -112,14 +112,14 @@ public class ControllerGerenciarUsuario {
         InicializadorDeTelas.setRoot("tela-principal");
     }
 
-    private Usuario getDadosUsuario() {
+    private Usuario getDados() {
         if(checkboxVeterinario.isSelected()) 
             return new Veterinario(txtEmail.getText(), txtNome.getText(), txtTelefone.getText(), !checkboxStatus.isSelected(), txtRegistroProfissional.getText());
         else 
             return new Usuario(txtEmail.getText(), txtNome.getText(), txtTelefone.getText(), !checkboxStatus.isSelected());
     }
 
-    private void setDadosUsuario(Usuario usuario) {
+    private void setDados(Usuario usuario) {
         txtEmail.setText(usuario.getEmail());
         txtNome.setText(usuario.getNome());
         txtTelefone.setText(usuario.getTelefone());
@@ -131,7 +131,7 @@ public class ControllerGerenciarUsuario {
         }
     }
 
-    private void limparFormulario() {
+    private void limparDados() {
         txtEmail.setText("");
         txtNome.setText("");
         txtTelefone.setText("");
@@ -145,13 +145,13 @@ public class ControllerGerenciarUsuario {
     }
 
     private void salvar() throws IOException {
-        Usuario usuario = getDadosUsuario();
+        Usuario usuario = getDados();
         String msgSucesso = "Usuário salvo com sucesso!";
         if(usuario instanceof Veterinario) msgSucesso = "Veterinário salvo com sucesso!";
         try {
-            cadastrarUsuario.cadastrar(getDadosUsuario(), txtSenha.getText());
+            cadastrarUsuario.cadastrar(getDados(), txtSenha.getText());
             alerta("Aviso", msgSucesso , AlertType.INFORMATION);
-            limparFormulario();
+            limparDados();
         } catch (Exception e) {
             if(e instanceof IOException) throw e;
             alerta("Erro", e.getMessage(), AlertType.ERROR);
@@ -159,7 +159,7 @@ public class ControllerGerenciarUsuario {
     }
 
     private void editar() throws IOException {
-        Usuario usuarioNovo = getDadosUsuario();
+        Usuario usuarioNovo = getDados();
         usuarioNovo.setId(usuarioSelecionado.getId());
         String msgSucesso = "Usuário editado com sucesso!";
         if(usuarioNovo instanceof Veterinario) msgSucesso = "Veterinário editado com sucesso!";

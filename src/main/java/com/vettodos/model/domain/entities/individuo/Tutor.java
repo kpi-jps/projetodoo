@@ -22,18 +22,6 @@ public class Tutor {
         this.id = id;
     }
 
-    public Tutor(String nome, String cpf, Endereco endereco) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.endereco = endereco;
-    }
-
-    public Tutor(String nome, String cpf) {
-        this(nome, cpf, null);
-        endereco = new Endereco();
-    }
-
-
     public Tutor(Long id, String nome, String cpf, String email, String telefone, Endereco endereco) {
         this.id = id;
         this.nome = nome;
@@ -43,6 +31,9 @@ public class Tutor {
         this.endereco = endereco;
     }
 
+    public Tutor( String nome, String cpf, String email, String telefone, Endereco endereco) {
+        this(null, nome, cpf, email, telefone, endereco);
+    }
 
     public String getNome() {
         return nome;

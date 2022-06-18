@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:controller="com.vettodos.application.controller.ControllerGerenciarTutor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #AFEEEE;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" >
+   <bottom>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="1800.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="logo" fitHeight="83.0" fitWidth="169.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+            <Label fx:id="labelTituloTela" layoutX="214.0" layoutY="52.0" text="Titulo tela" textFill="#07076e" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="45.0">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnVoltar" layoutX="745.0" layoutY="107.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #07076e;" text="Voltar" textFill="WHITE" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="140.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="labelNome" layoutX="60.0" layoutY="240.0" text="Nome: " textFill="#07076e" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="240.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNome" layoutX="60.0" layoutY="271.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="415.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="271.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label fx:id="labelEmail" layoutX="60.0" layoutY="320.0" text="Email:" textFill="#07076e" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="320.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtEmail" layoutX="60.0" layoutY="352.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="415.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="352.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtTelefone" layoutX="190.0" layoutY="350.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="250.0" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="352.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label fx:id="labelTelefone" layoutX="190.0" layoutY="320.0" text="Telefone:" textFill="#07076e" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="320.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNumero" layoutX="374.0" layoutY="434.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="100.0" AnchorPane.leftAnchor="374.0" AnchorPane.topAnchor="434.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label fx:id="labelNumero" layoutX="374.0" layoutY="404.0" text="Numero:" textFill="#07076e" AnchorPane.leftAnchor="374.0" AnchorPane.topAnchor="402.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnSalvarOuEditar" layoutX="60.0" layoutY="613.0" mnemonicParsing="false" onAction="#salvarOuEditar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #07076e;" text="Salvar" textFill="WHITE" AnchorPane.leftAnchor="60.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="iconeUsuario" fitHeight="180.0" fitWidth="183.0" layoutX="772.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0" />
+            <TextField fx:id="txtCPF" layoutX="487.0" layoutY="271.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="250.0" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="271.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label fx:id="labelCPF" layoutX="485.0" layoutY="236.0" text="CPF:" textFill="#07076e" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="240.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelLogradouro" layoutX="60.0" layoutY="402.0" text="Rua:" textFill="#07076e" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="402.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtLogradouro" layoutX="60.0" layoutY="434.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="434.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <ChoiceBox fx:id="choiceBoxCidade" layoutX="60.0" layoutY="518.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="60.0" />
+            <Label fx:id="labelCidade" layoutX="60.0" layoutY="486.0" text="Cidade:" textFill="#07076e" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="486.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="choiceBoxEstado" layoutX="374.0" layoutY="518.0" prefHeight="30.0" prefWidth="100.0" AnchorPane.leftAnchor="374.0" AnchorPane.topAnchor="518.0" />
+            <TextField fx:id="txtCEP" layoutX="500.0" layoutY="432.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="250.0" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="434.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label fx:id="labelCEP" layoutX="500.0" layoutY="400.0" text="CEP:" textFill="#07076e" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="402.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelEstado" layoutX="374.0" layoutY="486.0" text="Estado:" textFill="#07076e" AnchorPane.leftAnchor="374.0" AnchorPane.topAnchor="486.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtComplemento" layoutX="490.0" layoutY="518.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="250.0" AnchorPane.topAnchor="518.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label fx:id="labelComplemento" layoutX="490.0" layoutY="486.0" text="Complemento:" textFill="#07076e" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="486.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

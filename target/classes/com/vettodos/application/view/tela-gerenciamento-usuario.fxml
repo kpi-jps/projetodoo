@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:controller="com.vettodos.application.controller.ControllerGerenciarUsuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #AFEEEE;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" >
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #AFEEEE;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.vettodos.application.controller.ControllerGerenciarUsuario">
    <bottom>
       <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="1800.0" BorderPane.alignment="CENTER">
          <children>
@@ -86,7 +86,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <ImageView fx:id="iconeUsuario" fitHeight="260.0" fitWidth="183.0" layoutX="772.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="iconeUsuario" fitHeight="180.0" fitWidth="183.0" layoutX="772.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0" />
             <CheckBox fx:id="checkboxStatus" layoutX="60.0" layoutY="195.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="324.0" text="Desativar status usuario" textFill="#07076e" wrapText="true">
                <font>
                   <Font size="20.0" />

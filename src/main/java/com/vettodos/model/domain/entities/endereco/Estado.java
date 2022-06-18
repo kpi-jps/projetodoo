@@ -1,5 +1,8 @@
 package com.vettodos.model.domain.entities.endereco;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public enum Estado {
 
     AC("AC", "Acre"),
@@ -43,5 +46,11 @@ public enum Estado {
 
     public String getNome() {
         return nome;
+    }
+
+    public static List<String> getSiglaEstados() {
+        List <String> siglas = new ArrayList<>();
+        for (Estado estado : Estado.values()) siglas.add(estado.getSigla());
+        return siglas;
     }
 }

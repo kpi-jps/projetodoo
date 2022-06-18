@@ -27,7 +27,9 @@ public class CadastrarTutor {
     
     private Notificador validaTutor(Tutor tutor) {
         Notificador notificador = new Notificador();
-        if(!validaEndereco(tutor.getEndereco())) notificador.adicionaMsg("Endereço incompleto, é necessário preencher no mínimo CEP, logradouro e número! ");
+        if(Validadores.nuloOuVazio(tutor.getEndereco().getLogradouro())) notificador.adicionaMsg("Logradouro não pode ser nulo ou vazio! ");
+        if(!Validadores.validaNumero(tutor.getEndereco().getNumero())) notificador.adicionaMsg("Número inválido! ");
+        if(!Validadores.validaCEP(tutor.getEndereco().getCep())) notificador.adicionaMsg("CEP inválido! ");
         if(Validadores.nuloOuVazio(tutor.getNome())) notificador.adicionaMsg("Nome não pode ser nulo ou vazio! ");
         if(!Validadores.validaCPF(tutor.getCpf())) notificador.adicionaMsg("CPF inválido! ");
         return notificador;

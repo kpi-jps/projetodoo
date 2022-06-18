@@ -53,9 +53,9 @@ public class SQLTutorDAO implements TutorDAO {
     @Override
     public List<Tutor> buscarPorNome(String nome) {
         List<Tutor> tutores = new ArrayList<>();
-        String sql = "SELECT t.*, e.logradouro, e.numero, e.bairro," + 
-            "e.complemento, e.cep, e.cidade, e.estado" +
-            "FROM tutor t JOIN endereco e ON t.id_endereco = e.id" +
+        String sql = "SELECT t.*, e.logradouro, e.numero, " + 
+            "e.complemento, e.cep, e.cidade, e.estado " +
+            "FROM tutor t JOIN endereco e ON t.id_endereco = e.id " +
             "WHERE t.nome LIKE ?;";
         try (PreparedStatement ps =  FabricaDeConexao.criaPreparedStatement(sql)) {
             ps.setString(1, nome);
@@ -73,9 +73,9 @@ public class SQLTutorDAO implements TutorDAO {
     @Override
     public Optional<Tutor> buscarPorCPF(String cpf) {
         Tutor tutor = null;
-        String sql = "SELECT t.*, e.logradouro, e.numero, e.bairro," + 
-            "e.complemento, e.cep, e.cidade, e.estado" +
-            "FROM tutor t JOIN endereco e ON t.id_endereco = e.id" +
+        String sql = "SELECT t.*, e.logradouro, e.numero, " + 
+            "e.complemento, e.cep, e.cidade, e.estado " +
+            "FROM tutor t JOIN endereco e ON t.id_endereco = e.id " +
             "WHERE t.cpf LIKE ?;";
         try (PreparedStatement ps =  FabricaDeConexao.criaPreparedStatement(sql)) {
             ps.setString(1, cpf);
@@ -109,7 +109,7 @@ public class SQLTutorDAO implements TutorDAO {
 
         sql = "INSERT INTO tutor(" +
             "cpf, nome, email, telefone, id_endereco)" + 
-            "VALUES (?, ?, ?, ?, (SELECT id FROM endereco WHERE logradouro = ? AND" +
+            "VALUES (?, ?, ?, ?, (SELECT id FROM endereco WHERE logradouro = ? AND " +
             "numero = ? AND cep = ?));";
         
         try (PreparedStatement ps = FabricaDeConexao.criaPreparedStatement(sql)) {
@@ -123,7 +123,7 @@ public class SQLTutorDAO implements TutorDAO {
             ps.execute();
         } catch (SQLException e1) {
             e1.printStackTrace();
-            sql = "DELETE FROM endereco WHERE logradouro = ? AND" +
+            sql = "DELETE FROM endereco WHERE logradouro = ? AND " +
             "numero = ? AND cep = ?;";
             try (PreparedStatement ps = FabricaDeConexao.criaPreparedStatement(sql)) {
                 ps.setString(1, tutor.getEndereco().getLogradouro());

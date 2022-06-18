@@ -205,7 +205,8 @@ public class ControllerPrincipal {
     }   
 
     public void cadastrarTutor() throws IOException {
-        
+        modoOperacao = ModoOperacao.CRIAR;
+        InicializadorDeTelas.setRoot("tela-gerenciamento-tutor");
     }
 
     public void editarTutor() throws IOException {

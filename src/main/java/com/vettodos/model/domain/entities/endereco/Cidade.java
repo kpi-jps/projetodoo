@@ -85,6 +85,12 @@ public enum Cidade {
         return cidade;
     }
 
+    public static Cidade getCidade(String nomeCidade) {
+        for (Cidade cidade : Cidade.values()) 
+            if(nomeCidade.equals(cidade.getCidade())) return cidade;
+        return null;
+    }
+
     public Estado getEstado() {
         return estado;
     }
@@ -93,6 +99,13 @@ public enum Cidade {
         List <Cidade> cidades = new ArrayList<>();
         for (Cidade cidade : Cidade.values()) 
             if(cidade.getEstado() == estado) cidades.add(cidade);
+        return cidades;
+    }
+
+    public static List <String> listarNomeCidades(Estado estado) {
+        List <String> cidades = new ArrayList<>();
+        for (Cidade cidade : Cidade.values()) 
+            if(cidade.getEstado() == estado) cidades.add(cidade.getCidade());
         return cidades;
     }
 }
