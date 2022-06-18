@@ -26,7 +26,7 @@ public class SQLUsuarioDAO implements UsuarioDAO {
         String credencial = rs.getString("credencial");
         int status = rs.getInt("status");
         String registroProfissional = rs.getString("registro_profissional");
-        if(credencial.equals(Credencial.VETERINARIO.getNomeCredencial()) && registroProfissional == null) {
+        if(credencial.equals(Credencial.VETERINARIO.getNomeCredencial()) && registroProfissional != null) {
             if(status == 0) return new Veterinario(id, email, nome, telefone, false, registroProfissional);
             return new Veterinario(id, email, nome, telefone, true, registroProfissional);
         } 
@@ -90,16 +90,18 @@ public class SQLUsuarioDAO implements UsuarioDAO {
     @Override
     public void editar(Usuario usuario) {
         String sql = "UPDATE usuario SET email = ?, nome = ?, "+
-            "telefone = ?, credencial = ?, registro_profissional = ?" + 
+            "telefone = ?, credencial = ?, status = ?, registro_profissional = ?" + 
             "WHERE id = ?;";
         try (PreparedStatement ps = FabricaDeConexao.criaPreparedStatement(sql)) {
             ps.setString(1, usuario.getEmail());
             ps.setString(2, usuario.getNome());
             ps.setString(3, usuario.getTelefone());
             ps.setString(4, usuario.getCredencial().getNomeCredencial());
-            if(usuario instanceof Veterinario) ps.setString(5, ((Veterinario)usuario).getRegistroProfissional());
-            else ps.setNull(5, Types.VARCHAR);
-            ps.setLong(6, usuario.getId());
+            if(usuario.isStatus()) ps.setInt(5, 1);
+            else ps.setInt(5, 0);
+            if(usuario instanceof Veterinario) ps.setString(6, ((Veterinario)usuario).getRegistroProfissional());
+            else ps.setNull(6, Types.VARCHAR);
+            ps.setLong(7, usuario.getId());
             ps.execute();
         } catch (SQLException e) {
             e.printStackTrace();

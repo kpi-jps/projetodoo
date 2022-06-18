@@ -20,6 +20,7 @@ public class EditarUsuario {
 
     private Notificador validaUsuario(Usuario usuarioAnterior, Usuario usuarioNovo) {
         Notificador notificador = new Notificador();
+        if(!Validadores.nuloOuVazio(usuarioNovo.getTelefone()) && !Validadores.validaNumero(usuarioNovo.getTelefone())) notificador.adicionaMsg("Telefone inválido! ");
         if(Validadores.nuloOuVazio(usuarioNovo.getNome())) notificador.adicionaMsg("Nome não pode ser nulo ou vazio! ");
         if(!Validadores.validaEmail(usuarioNovo.getEmail())) notificador.adicionaMsg("E-mail precisa ser válido! ");
         if(usuarioNovo instanceof Veterinario) {

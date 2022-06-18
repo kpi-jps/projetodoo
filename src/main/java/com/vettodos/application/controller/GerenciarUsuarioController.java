@@ -20,18 +20,22 @@ import javafx.scene.image.ImageView;
 
 import static com.vettodos.Main.*;
 
-public class CadastroUsuarioController {
+public class GerenciarUsuarioController {
 
     @FXML
     private ImageView logo;
     @FXML
     private ImageView iconeUsuario;
     @FXML
-    private Button btnSalvar;
+    private Label labelTituloTela;
+    @FXML
+    private Button btnSalvarOuEditar;
     @FXML
     private Button btnVoltar;
     @FXML
     private CheckBox checkboxVeterinario;
+    @FXML
+    private CheckBox checkboxStatus;
     @FXML
     private Label labelEmail;
     @FXML
@@ -60,9 +64,9 @@ public class CadastroUsuarioController {
         Image imagemIconeUsuario = new Image(caminhoImagemIconeUsuario);
         logo.setImage(imagemLogo);
         iconeUsuario.setImage(imagemIconeUsuario);
-        //labelRegistroProfissional.setDisable(true);
-        setRegistroProfissionalInvisivel();
-        checkboxVeterinario.setSelected(false);
+        if(modoOperacao == ModoOperacao.CRIAR) setModoCriar();
+        if(modoOperacao == ModoOperacao.EDITAR) setModoEditar();
+        
     }
 
     private void setRegistroProfissionalVisivel() {
@@ -73,6 +77,30 @@ public class CadastroUsuarioController {
     private void setRegistroProfissionalInvisivel() {
         labelRegistroProfissional.setVisible(false);
         txtRegistroProfissional.setVisible(false);
+    }
+
+    private void setModoCriar() {
+        labelTituloTela.setText("Cadastro Usuário");
+        labelSenha.setVisible(true);
+        txtSenha.setVisible(true);
+        btnSalvarOuEditar.setText("Salvar");
+        setRegistroProfissionalInvisivel();
+        checkboxVeterinario.setSelected(false);
+        checkboxVeterinario.setVisible(true);
+        checkboxStatus.setSelected(false);
+        checkboxStatus.setVisible(false);
+    }
+
+    private void setModoEditar() {
+        labelTituloTela.setText("Edição Usuário");
+        labelSenha.setVisible(false);
+        txtSenha.setVisible(false);
+        btnSalvarOuEditar.setText("Editar");
+        checkboxVeterinario.setVisible(false);
+        if(usuarioSelecionado instanceof Veterinario) setRegistroProfissionalVisivel();
+        else setRegistroProfissionalInvisivel();
+        setDadosUsuario(usuarioSelecionado);
+
     }
 
     public void selecionarVeterinario() {
@@ -86,9 +114,21 @@ public class CadastroUsuarioController {
 
     private Usuario getDadosUsuario() {
         if(checkboxVeterinario.isSelected()) 
-            return new Veterinario(txtEmail.getText(), txtNome.getText(), txtTelefone.getText(), true, txtRegistroProfissional.getText());
+            return new Veterinario(txtEmail.getText(), txtNome.getText(), txtTelefone.getText(), !checkboxStatus.isSelected(), txtRegistroProfissional.getText());
         else 
-            return new Usuario(txtEmail.getText(), txtNome.getText(), txtTelefone.getText(), true);
+            return new Usuario(txtEmail.getText(), txtNome.getText(), txtTelefone.getText(), !checkboxStatus.isSelected());
+    }
+
+    private void setDadosUsuario(Usuario usuario) {
+        txtEmail.setText(usuario.getEmail());
+        txtNome.setText(usuario.getNome());
+        txtTelefone.setText(usuario.getTelefone());
+        checkboxStatus.setSelected(!usuario.isStatus());
+        if(usuario instanceof Veterinario) {
+            Veterinario veterinario = (Veterinario) usuario;
+            checkboxVeterinario.setSelected(true);
+            txtRegistroProfissional.setText(veterinario.getRegistroProfissional());
+        }
     }
 
     private void limparFormulario() {
@@ -99,7 +139,12 @@ public class CadastroUsuarioController {
         txtSenha.setText("");
     }
 
-    public void salvar() throws IOException {
+    public void salvarOuEditar() throws IOException {
+        if(modoOperacao == ModoOperacao.CRIAR) salvar();
+        if(modoOperacao == ModoOperacao.EDITAR) editar();
+    }
+
+    private void salvar() throws IOException {
         Usuario usuario = getDadosUsuario();
         String msgSucesso = "Usuário salvo com sucesso!";
         if(usuario instanceof Veterinario) msgSucesso = "Veterinário salvo com sucesso!";
@@ -110,8 +155,22 @@ public class CadastroUsuarioController {
         } catch (Exception e) {
             if(e instanceof IOException) throw e;
             alerta("Erro", e.getMessage(), AlertType.ERROR);
-        }
-        
+        } 
+    }
+
+    private void editar() throws IOException {
+        Usuario usuarioNovo = getDadosUsuario();
+        usuarioNovo.setId(usuarioSelecionado.getId());
+        String msgSucesso = "Usuário editado com sucesso!";
+        if(usuarioNovo instanceof Veterinario) msgSucesso = "Veterinário editado com sucesso!";
+        try {
+            editarUsuario.editar(usuarioSelecionado, usuarioNovo);
+            alerta("Aviso", msgSucesso , AlertType.INFORMATION);
+            voltar();
+        } catch (Exception e) {
+            if(e instanceof IOException) throw e;
+            alerta("Erro", e.getMessage(), AlertType.ERROR);
+        } 
     }
 
     private void alerta(String title, String message, Alert.AlertType type){

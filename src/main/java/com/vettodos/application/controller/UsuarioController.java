@@ -53,19 +53,24 @@ public class UsuarioController {
     }
 
     public void cadastrarUsuario() throws IOException {
-        InicializadorDeTelas.setRoot("tela-cadastra-usuario");
+        modoOperacao = ModoOperacao.CRIAR;
+        InicializadorDeTelas.setRoot("tela-gerenciamento-usuario");
     }
 
     public void editarUsuario() throws IOException {
-        //InicializadorDeTelas.setRoot("tela-edita-usuario");
+        modoOperacao = ModoOperacao.EDITAR;
+        InicializadorDeTelas.mostrarTelaModal("tela-busca-tipo1", new BuscarUsuarioController());
+        
     }   
 
     public void cadastrarTutor() throws IOException {
-        //InicializadorDeTelas.setRoot("tela-cadastra-tutor");
+        
     }
 
     public void editarTutor() throws IOException {
-        InicializadorDeTelas.setRoot("tela-edita-tutor");
+        //InicializadorDeTelas.mostrarTelaModal("tela-busca-tipo1");
+        //modoOperacao = ModoOperacao.EDITAR;
+        //InicializadorDeTelas.setRoot("tela-gerenciamento-tutor");
     }
 
     public void cadastrarAnimal() throws IOException {

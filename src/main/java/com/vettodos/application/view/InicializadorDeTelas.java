@@ -6,6 +6,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class InicializadorDeTelas extends Application{
@@ -13,7 +15,13 @@ public class InicializadorDeTelas extends Application{
     private static Scene scene;
     private static Object controller;
     private static Stage stage;
+    private static Scene modalScene;
+    private static Stage modalStage;
     
+    public static void fecharModal() {
+        modalStage.close();
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
         InicializadorDeTelas.stage = stage;
@@ -23,12 +31,22 @@ public class InicializadorDeTelas extends Application{
         stage.show();
     }
 
+    public static void mostrarTelaModal(String fxml, Object controller) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setController(controller);
+        Parent parent = fxmlLoader.load(InicializadorDeTelas.class.getResource(fxml + ".fxml").openStream());
+        modalStage = new Stage();
+        modalScene = new Scene(parent);
+        modalStage.setScene(modalScene);
+        modalStage.setResizable(false);
+        modalStage.initModality(Modality.APPLICATION_MODAL);
+        modalStage.showAndWait();
+    }
+
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
         stage.sizeToScene();
         stage.setResizable(true);
-        
-        //stage.show();
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
@@ -41,16 +59,5 @@ public class InicializadorDeTelas extends Application{
     public static void main(String[] args) {
         launch();
     }
-
-    public static Object getController() {
-        return controller;
-    }
-
-    public static Stage getStage() {
-        return stage;
-    }
-
-    
-
-    
+  
 }

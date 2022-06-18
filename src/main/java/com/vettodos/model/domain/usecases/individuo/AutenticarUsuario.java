@@ -33,6 +33,7 @@ public class AutenticarUsuario {
         } catch (Exception e) {
             throw e;
         }
+        if(!usuario.isStatus()) throw new AutenticacaoException("Usuário não inativado, acesso negado! ");
         if(!usuarioDAO.autenticar(email, senha)) throw new AutenticacaoException("Usuário não autenticado, acesso negado! ");
         return usuario;
     }
