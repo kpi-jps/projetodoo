@@ -19,7 +19,7 @@ import com.vettodos.application.view.InicializadorDeTelas;
 import com.vettodos.model.domain.entities.individuo.Veterinario;
 
 
-public class AutenticarUsuarioController {
+public class ControllerAutenticarUsuario {
 
     @FXML
     private ImageView logo;
@@ -47,12 +47,7 @@ public class AutenticarUsuarioController {
         String senha = txtSenha.getText();
         try {
             usuarioAutenticado = autenticarUsuario.autenticar(email, senha);            
-            if(usuarioAutenticado instanceof Veterinario) {
-                usuarioAutenticado = (Veterinario) usuarioAutenticado;
-                InicializadorDeTelas.setRoot("tela-principal-veterinario");
-            } else {
-                InicializadorDeTelas.setRoot("tela-principal-usuario");
-            }
+            InicializadorDeTelas.setRoot("tela-principal");
             
         } catch (Exception e) {
             //e.printStackTrace();

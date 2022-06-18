@@ -20,7 +20,7 @@ import javafx.scene.image.ImageView;
 
 import static com.vettodos.Main.*;
 
-public class GerenciarUsuarioController {
+public class ControllerGerenciarUsuario {
 
     @FXML
     private ImageView logo;
@@ -109,7 +109,7 @@ public class GerenciarUsuarioController {
     }
 
     public void voltar() throws IOException {
-        InicializadorDeTelas.setRoot("tela-principal-usuario");
+        InicializadorDeTelas.setRoot("tela-principal");
     }
 
     private Usuario getDadosUsuario() {

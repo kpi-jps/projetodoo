@@ -7,7 +7,6 @@ import java.util.List;
 import com.vettodos.Main;
 import com.vettodos.application.view.InicializadorDeTelas;
 import com.vettodos.model.domain.entities.individuo.Usuario;
-import com.vettodos.model.domain.entities.individuo.Veterinario;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,9 +20,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
-public class BuscarUsuarioController {
+public class ControllerBuscarUsuario {
     @FXML
     private Button btnBuscaTipo1;
 
