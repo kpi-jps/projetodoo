@@ -210,9 +210,8 @@ public class ControllerPrincipal {
     }
 
     public void editarTutor() throws IOException {
-        //InicializadorDeTelas.mostrarTelaModal("tela-busca-tipo1");
-        //modoOperacao = ModoOperacao.EDITAR;
-        //InicializadorDeTelas.setRoot("tela-gerenciamento-tutor");
+        modoOperacao = ModoOperacao.EDITAR;
+        InicializadorDeTelas.mostrarTelaModal("tela-busca-tipo1", new ControllerBuscarTutor());
     }
 
     public void cadastrarAnimal() throws IOException {

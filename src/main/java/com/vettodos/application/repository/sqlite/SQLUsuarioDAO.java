@@ -38,9 +38,9 @@ public class SQLUsuarioDAO implements UsuarioDAO {
     @Override
     public List<Usuario> buscarPorNome(String nome) {
         List<Usuario> usuarios = new ArrayList<>();
-        String sql = "SELECT * FROM usuario WHERE nome = ?;";
+        String sql = "SELECT * FROM usuario WHERE lower(nome) LIKE ?;";
         try (PreparedStatement ps =  FabricaDeConexao.criaPreparedStatement(sql)) {
-            ps.setString(1, nome);
+            ps.setString(1, "%" + nome.toLowerCase() + "%");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Usuario usuario = retornaUsuario(rs);
@@ -55,9 +55,9 @@ public class SQLUsuarioDAO implements UsuarioDAO {
     @Override
     public Optional<Usuario> buscarPorEmail(String email) {
         Usuario usuario = null;
-        String sql = "SELECT * FROM usuario WHERE email LIKE ?;";
+        String sql = "SELECT * FROM usuario WHERE lower(email) LIKE ?;";
         try (PreparedStatement ps =  FabricaDeConexao.criaPreparedStatement(sql)) {
-            ps.setString(1, email);
+            ps.setString(1, email.toLowerCase());
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 usuario = retornaUsuario(rs);

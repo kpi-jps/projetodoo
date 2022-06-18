@@ -82,7 +82,19 @@ public class ControllerGerenciarTutor {
         logo.setImage(imagemLogo);
         iconeUsuario.setImage(imagemIconeUsuario);
         setAmbiente();
-        if(modoOperacao == ModoOperacao.EDITAR) setDados(tutorSelecionado);  
+        if(modoOperacao == ModoOperacao.EDITAR) setModoEditar();
+        else setModoSalvar();
+    }
+
+    private void setModoEditar() {
+        setDados(tutorSelecionado);
+        labelTituloTela.setText("Edição Tutor");
+        btnSalvarOuEditar.setText("Editar");
+    }
+
+    private void setModoSalvar() {
+        labelTituloTela.setText("Cadastrar Tutor");
+        btnSalvarOuEditar.setText("Salvar");
     }
 
     private void preencherListaCidade() {
@@ -120,7 +132,7 @@ public class ControllerGerenciarTutor {
                 txtCEP.getText(), 
                 txtNumero.getText(), 
                 Cidade.getCidade(choiceBoxCidade.getValue()),
-                Estado.valueOf(choiceBoxEstado.getValue()), 
+                Estado.getSiglaEstado(choiceBoxEstado.getValue()), 
                 txtComplemento.getText()
                 )
             );
@@ -135,8 +147,8 @@ public class ControllerGerenciarTutor {
         txtNumero.setText(tutor.getEndereco().getNumero());
         txtCEP.setText(tutor.getEndereco().getCep());
         txtComplemento.setText(tutor.getEndereco().getComplemento());
-        choiceBoxCidade.setValue(tutor.getEndereco().getCidade().getCidade());
-        choiceBoxEstado.setValue(tutor.getEndereco().getEstado().getSigla());      
+        choiceBoxEstado.setValue(tutor.getEndereco().getCidade().getEstado().getSigla());
+        choiceBoxCidade.setValue(tutor.getEndereco().getCidade().getNomeCidade());
     }
 
     private void limparDados() {
@@ -148,8 +160,8 @@ public class ControllerGerenciarTutor {
         txtNumero.setText("");
         txtCEP.setText("");
         txtComplemento.setText("");
-        choiceBoxCidade.setValue(choiceBoxCidade.getItems().get(0));
         choiceBoxEstado.setValue(choiceBoxEstado.getItems().get(0));
+        choiceBoxCidade.setValue(choiceBoxCidade.getItems().get(0));  
     }
 
     public void salvarOuEditar() throws IOException {
@@ -169,7 +181,17 @@ public class ControllerGerenciarTutor {
     }
 
     private void editar() throws IOException {
-       
+        Tutor tutorNovo = getDados();
+        tutorNovo.setId(tutorSelecionado.getId());
+        tutorNovo.getEndereco().setId(tutorSelecionado.getEndereco().getId());
+        try {
+            editarTutor.editar(tutorSelecionado, tutorNovo);
+            alerta("Aviso", "Tutor editado com sucesso!" , AlertType.INFORMATION);
+            voltar();
+        } catch (Exception e) {
+            if(e instanceof IOException) throw e;
+            alerta("Erro", e.getMessage(), AlertType.ERROR);
+        } 
     }
 
     private void alerta(String title, String message, Alert.AlertType type){

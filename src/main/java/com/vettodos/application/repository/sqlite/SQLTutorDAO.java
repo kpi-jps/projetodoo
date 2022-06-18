@@ -32,13 +32,15 @@ public class SQLTutorDAO implements TutorDAO {
         Cidade cidadeEnun;
         Estado estadoEnun;
         try {
-            cidadeEnun = Cidade.valueOf(cidade);
+            cidadeEnun = Cidade.getCidade(cidade);
         } catch (Exception e) {
+            e.printStackTrace();
             cidadeEnun = null;
         }
         try {
-            estadoEnun = Estado.valueOf(estado);
+            estadoEnun = Estado.getSiglaEstado(estado);
         } catch (Exception e) {
+            e.printStackTrace();
             estadoEnun = null;
         }
         Endereco endereco = new Endereco(id_endereco, 
@@ -56,9 +58,9 @@ public class SQLTutorDAO implements TutorDAO {
         String sql = "SELECT t.*, e.logradouro, e.numero, " + 
             "e.complemento, e.cep, e.cidade, e.estado " +
             "FROM tutor t JOIN endereco e ON t.id_endereco = e.id " +
-            "WHERE t.nome LIKE ?;";
+            "WHERE lower(t.nome) LIKE ?;";
         try (PreparedStatement ps =  FabricaDeConexao.criaPreparedStatement(sql)) {
-            ps.setString(1, nome);
+            ps.setString(1, "%" + nome.toLowerCase() + "%");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Tutor tutor = retornaTutor(rs);
@@ -92,14 +94,14 @@ public class SQLTutorDAO implements TutorDAO {
     @Override
     public void salvar(Tutor tutor) {
         String sql = "INSERT INTO endereco(" +
-            "logradouro, numero, cep, cidade, estado, complemento)" + 
+            "logradouro, numero, cep, cidade, estado, complemento) " + 
             "VALUES (?, ?, ?, ?, ?, ?); ";
         
         try (PreparedStatement ps = FabricaDeConexao.criaPreparedStatement(sql)) {
             ps.setString(1, tutor.getEndereco().getLogradouro());
             ps.setString(2, tutor.getEndereco().getNumero());
             ps.setString(3, tutor.getEndereco().getCep());
-            ps.setString(4, tutor.getEndereco().getCidade().getCidade());
+            ps.setString(4, tutor.getEndereco().getCidade().getNomeCidade());
             ps.setString(5, tutor.getEndereco().getEstado().getNome());
             ps.setString(6, tutor.getEndereco().getComplemento());
             ps.execute();
@@ -138,15 +140,15 @@ public class SQLTutorDAO implements TutorDAO {
 
     @Override
     public void editar(Tutor tutor) {
-        String sql = "UPDATE endereco SET logradouro = ?, numero = ?" +
-            "cep = ?, cidade = ?, estado = ?, complemento = ?;" + 
-            "WHERE id = ?";
+        String sql = "UPDATE endereco SET logradouro = ?, numero = ?, " +
+            "cep = ?, cidade = ?, estado = ?, complemento = ? " + 
+            "WHERE id = ?;";
         
         try (PreparedStatement ps = FabricaDeConexao.criaPreparedStatement(sql)) {
             ps.setString(1, tutor.getEndereco().getLogradouro());
             ps.setString(2, tutor.getEndereco().getNumero());
             ps.setString(3, tutor.getEndereco().getCep());
-            ps.setString(4, tutor.getEndereco().getCidade().getCidade());
+            ps.setString(4, tutor.getEndereco().getCidade().getNomeCidade());
             ps.setString(5, tutor.getEndereco().getEstado().getNome());
             ps.setString(6, tutor.getEndereco().getComplemento());
             ps.setLong(7, tutor.getEndereco().getId());
@@ -155,19 +157,15 @@ public class SQLTutorDAO implements TutorDAO {
             e.printStackTrace();
         }  
 
-        sql = "UPDATE tutor SET cpf = ?, nome = ?, email = ?" +
-            "telefone = ? WHERE logradouro = ? AND numero = ? AND cep = ?"+
-            "WHERE id = ?;";
+        sql = "UPDATE tutor SET cpf = ?, nome = ?, email = ?, " +
+            "telefone = ? WHERE id = ?;";
         
         try (PreparedStatement ps = FabricaDeConexao.criaPreparedStatement(sql)) {
             ps.setString(1, tutor.getCpf());
             ps.setString(2, tutor.getNome());
             ps.setString(3, tutor.getEmail());
             ps.setString(4, tutor.getTelefone());
-            ps.setString(5, tutor.getEndereco().getLogradouro());
-            ps.setString(6, tutor.getEndereco().getNumero());
-            ps.setString(7, tutor.getEndereco().getCep());
-            ps.setLong(8, tutor.getId());
+            ps.setLong(5, tutor.getId());
             ps.execute();
         } catch (SQLException e) {
             e.printStackTrace();

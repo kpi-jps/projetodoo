@@ -74,20 +74,20 @@ public enum Cidade {
     VITORIA("Vitória", Estado.ES);
 
     private Estado estado;
-    private String cidade;
+    private String nomeCidade;
 
-    private Cidade(String cidade, Estado estado) {
-        this.cidade = cidade;
+    private Cidade(String nomeCidade, Estado estado) {
+        this.nomeCidade = nomeCidade;
         this.estado = estado;
     }
 
-    public String getCidade() {
-        return cidade;
+    public String getNomeCidade() {
+        return nomeCidade;
     }
 
     public static Cidade getCidade(String nomeCidade) {
         for (Cidade cidade : Cidade.values()) 
-            if(nomeCidade.equals(cidade.getCidade())) return cidade;
+            if(nomeCidade.equals(cidade.getNomeCidade())) return cidade;
         return null;
     }
 
@@ -105,7 +105,7 @@ public enum Cidade {
     public static List <String> listarNomeCidades(Estado estado) {
         List <String> cidades = new ArrayList<>();
         for (Cidade cidade : Cidade.values()) 
-            if(cidade.getEstado() == estado) cidades.add(cidade.getCidade());
+            if(cidade.getEstado() == estado) cidades.add(cidade.getNomeCidade());
         return cidades;
     }
 }

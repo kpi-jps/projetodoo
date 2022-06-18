@@ -18,15 +18,15 @@ public class EditarUsuario {
         return (!usuarioDAO.buscarPorEmail(emailNovo).isEmpty() && !emailNovo.equals(emailAnterior));
     }
 
-    private Notificador validaUsuario(Usuario usuarioAnterior, Usuario usuarioNovo) {
+    private Notificador validaUsuario(Usuario usuario) {
         Notificador notificador = new Notificador();
-        if(!Validadores.nuloOuVazio(usuarioNovo.getTelefone()) && !Validadores.validaNumero(usuarioNovo.getTelefone())) notificador.adicionaMsg("Telefone inválido! ");
-        if(Validadores.nuloOuVazio(usuarioNovo.getNome())) notificador.adicionaMsg("Nome não pode ser nulo ou vazio! ");
-        if(!Validadores.validaEmail(usuarioNovo.getEmail())) notificador.adicionaMsg("E-mail precisa ser válido! ");
-        if(usuarioNovo instanceof Veterinario) {
-            Veterinario veterinario = (Veterinario) usuarioNovo;
-            if(Validadores.nuloOuVazio(veterinario.getRegistroProfissional())) 
-                notificador.adicionaMsg("Registro profissional não pode ser nulo ou vazio! ");
+        if(!Validadores.nuloOuVazio(usuario.getTelefone()) && !Validadores.validaNumero(usuario.getTelefone())) notificador.adicionaMsg("Telefone inválido! ");
+        if(Validadores.nuloOuVazio(usuario.getNome())) notificador.adicionaMsg("Nome não pode ser nulo ou vazio! ");
+        if(!Validadores.validaEmail(usuario.getEmail())) notificador.adicionaMsg("E-mail inválido! ");
+        if(usuario instanceof Veterinario) {
+            Veterinario veterinario = (Veterinario) usuario;
+            if(Validadores.nuloOuVazio(usuario.getTelefone()) || !Validadores.validaNumero(veterinario.getRegistroProfissional())) 
+                notificador.adicionaMsg("Registro profissional inválido! ");
         }
         return notificador;
     }
@@ -34,7 +34,7 @@ public class EditarUsuario {
     public void editar(Usuario usuarioAnterior, Usuario usuarioNovo) {
         if(emailExiste(usuarioAnterior.getEmail(), usuarioNovo.getEmail())) 
             throw new EntidadeJaExistenteException("E-mail já cadastrado por outro usuário! ");
-        Notificador notificador = validaUsuario(usuarioAnterior, usuarioNovo);
+        Notificador notificador = validaUsuario(usuarioNovo);
         if(notificador.haErro()) throw new EntradaInvalidaException(notificador.notificar());
         usuarioDAO.editar(usuarioNovo);
     }
