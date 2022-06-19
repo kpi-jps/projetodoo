@@ -21,6 +21,11 @@ public class Produto {
         this.minimoEmEstoque = minimoEmEstoque;
     }
 
+    public Produto(Categoria categoria, String nome, String descricao, UnidadeMedida unidadeMedida, Double minimoEmEstoque) {
+        this(null, categoria, nome, descricao, unidadeMedida, minimoEmEstoque);
+    }
+    
+
     public Long getId() {
         return this.id;
     }

@@ -86,7 +86,7 @@ public class SQLAnimalDAO implements AnimalDAO{
             "JOIN endereco e ON t.id_endereco = e.id " +
             "WHERE t.nome LIKE ? ;";
         try (PreparedStatement ps =  FabricaDeConexao.criaPreparedStatement(sql)) {
-            ps.setString(1, "%" + nomeTutor.toLowerCase() + "%");
+            ps.setString(1, nomeTutor.toLowerCase());
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Animal animal = retornaAnimal(rs);

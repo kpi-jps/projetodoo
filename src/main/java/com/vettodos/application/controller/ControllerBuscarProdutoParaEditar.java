@@ -2,11 +2,11 @@ package com.vettodos.application.controller;
 
 import java.io.IOException;
 
+
 import com.vettodos.Main;
 import com.vettodos.application.view.InicializadorDeTelas;
-import com.vettodos.model.domain.entities.individuo.Tutor;
-
-import static com.vettodos.Main.*;
+import com.vettodos.model.domain.entities.produto.Categoria;
+import com.vettodos.model.domain.entities.produto.Produto;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,7 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class ControllerBuscarTutor {
+public class ControllerBuscarProdutoParaEditar {
     @FXML
     private Button btnBuscaTipo1;
     @FXML
@@ -36,20 +36,24 @@ public class ControllerBuscarTutor {
     @FXML
     private TextField txtEntradaBusca;
     @FXML
-    private TableColumn<Tutor, String> colResultado;
+    private TableColumn<Produto, String> colResultado;
     @FXML
-    private TableView<Tutor> resultadoBusca;
-    private ObservableList<Tutor> resultados;
+    private TableView<Produto> resultadoBusca;
+    private ObservableList<Produto> resultados;
 
     @FXML
     private void initialize() throws Exception {
-        choiceBox1.setVisible(false);
+        choiceBox1.setVisible(true);
+        choiceBox1.getItems().addAll(Categoria.listarCategorias());
+        choiceBox1.setValue(choiceBox1.getItems().get(0));
+        btnBuscaTipo2.setVisible(false);
+        txtEntradaBusca.setVisible(false);
+        labelBusca.setText("Selecionar categoria");
         resultados = FXCollections.observableArrayList();
-        labelTituloTela.setText("Buscar Tutor");
-        btnBuscaTipo1.setText("Buscar por CPF");
-        btnBuscaTipo2.setText("Buscar por nome");
+        labelTituloTela.setText("Buscar Produto");
+        btnBuscaTipo1.setText("Buscar por categoria");
         resultadoBusca.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        colResultado.setCellValueFactory(new PropertyValueFactory<>("Nome"));
+        colResultado.setCellValueFactory(new PropertyValueFactory<>("nome"));
         resultadoBusca.setOnMouseClicked(event -> {
             try {
                 retornarResultadoBusca();
@@ -59,34 +63,19 @@ public class ControllerBuscarTutor {
         });
         
         btnBuscaTipo1.setOnAction(event ->  {
-            buscarPorCPF();  
-        });
-
-        btnBuscaTipo2.setOnAction(event ->  {
-            buscarPorNome();  
+            buscarPorCategoria(); 
         });
         
     }
-    
     public void retornarResultadoBusca() throws IOException {
-        tutorSelecionado = resultadoBusca.getSelectionModel().getSelectedItem();
+        Main.produtoSelecionado = resultadoBusca.getSelectionModel().getSelectedItem();
         InicializadorDeTelas.fecharModal();
+        InicializadorDeTelas.setRoot("tela-gerenciamento-produto");
     }
-    
-    public void buscarPorCPF() {
+    public void buscarPorCategoria() {
         resultados.clear();
         try {
-            resultados.add(Main.buscarTutor.buscarPorCPF(txtEntradaBusca.getText()));
-            resultadoBusca.setItems(resultados);
-        } catch (Exception e) {
-            alerta("Erro", e.getMessage(), AlertType.ERROR);
-        }
-    }
-
-    public void buscarPorNome() {
-        resultados.clear();
-        try {
-            resultados.addAll(Main.buscarTutor.buscarPorNome(txtEntradaBusca.getText()));
+            resultados.addAll(Main.buscarProduto.buscarPorCategoria(Categoria.getCategoria(choiceBox1.getValue())));
             resultadoBusca.setItems(resultados);
         } catch (Exception e) {
             alerta("Erro", e.getMessage(), AlertType.ERROR);
@@ -102,4 +91,3 @@ public class ControllerBuscarTutor {
     }
 
 }
-

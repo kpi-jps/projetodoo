@@ -1,8 +1,6 @@
 package com.vettodos.application.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.vettodos.Main;
 import com.vettodos.application.view.InicializadorDeTelas;
@@ -13,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
@@ -24,31 +23,26 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class ControllerBuscarUsuario {
     @FXML
     private Button btnBuscaTipo1;
-
     @FXML
     private Button btnBuscaTipo2;
-
+    @FXML
+    private ChoiceBox<String> choiceBox1;
     @FXML
     private Label labelBusca;
-
     @FXML
     private Label labelTituloTela;
-
     @FXML
     private TextField txtEntradaBusca;
-
     @FXML
     private TableColumn<Usuario, String> colResultado;
-
     @FXML
     private TableView<Usuario> resultadoBusca;
-
-    List <Usuario> usuarios = new ArrayList<>();
 
     private ObservableList<Usuario> resultados;
 
     @FXML
     private void initialize() throws Exception {
+        choiceBox1.setVisible(false);
         resultados = FXCollections.observableArrayList();
         labelTituloTela.setText("Buscar Usuário");
         btnBuscaTipo1.setText("Buscar por email");

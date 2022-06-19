@@ -200,7 +200,7 @@ public class ControllerPrincipal {
 
     public void editarUsuario() throws IOException {
         modoOperacao = ModoOperacao.EDITAR;
-        InicializadorDeTelas.mostrarTelaModal("tela-busca-tipo1", new ControllerBuscarUsuario());
+        InicializadorDeTelas.mostrarTelaModal("tela-busca", new ControllerBuscarUsuario());
         
     }   
 
@@ -211,7 +211,7 @@ public class ControllerPrincipal {
 
     public void editarTutor() throws IOException {
         modoOperacao = ModoOperacao.EDITAR;
-        InicializadorDeTelas.mostrarTelaModal("tela-busca-tipo1", new ControllerBuscarTutorParaEditar());
+        InicializadorDeTelas.mostrarTelaModal("tela-busca", new ControllerBuscarTutorParaEditar());
     }
 
     public void cadastrarAnimal() throws IOException {
@@ -221,15 +221,17 @@ public class ControllerPrincipal {
 
     public void editarAnimal() throws IOException {
         modoOperacao = ModoOperacao.EDITAR;
-        InicializadorDeTelas.mostrarTelaModal("tela-busca-tipo1", new ControllerBuscarAnimal());
+        InicializadorDeTelas.mostrarTelaModal("tela-busca", new ControllerBuscarAnimal());
     }
 
     public void cadastrarProduto() throws IOException {
-        //InicializadorDeTelas.setRoot("tela-cadastra-produto");
+        modoOperacao = ModoOperacao.CRIAR;
+        InicializadorDeTelas.setRoot("tela-gerenciamento-produto");
     }
 
     public void editarProduto() throws IOException {
-        //InicializadorDeTelas.setRoot("tela-edita-produto");
+        modoOperacao = ModoOperacao.EDITAR;
+        InicializadorDeTelas.mostrarTelaModal("tela-busca", new ControllerBuscarProdutoParaEditar());
     }
 
     public void gerenciarEstoque() throws IOException {

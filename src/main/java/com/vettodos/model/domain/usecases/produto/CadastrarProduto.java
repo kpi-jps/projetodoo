@@ -29,6 +29,7 @@ public class CadastrarProduto {
         if(Validadores.nuloOuVazio(produto.getNome())) notificador.adicionaMsg("Nome não pode ser nulo ou vazio! ");
         if(Validadores.nuloOuVazio(produto.getCategoria())) notificador.adicionaMsg("Categoria não pode ser nulo ou vazio! ");
         if(Validadores.nuloOuVazio(produto.getUnidadeMedida())) notificador.adicionaMsg("Unidade de medida não pode ser nula ou vazia!");
+        if(Validadores.nuloOuVazio(produto.getDescricao())) notificador.adicionaMsg("Descrição não pode ser nula ou vazia!");
         return notificador;
     }
     

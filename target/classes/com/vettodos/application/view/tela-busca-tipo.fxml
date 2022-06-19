@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -44,6 +45,7 @@
                 <TableColumn fx:id="colResultado" prefWidth="459.0" text="Resultado busca" />
               </columns>
             </TableView>
+            <ChoiceBox fx:id="choiceBox" layoutX="197.0" layoutY="131.0" prefHeight="30.0" prefWidth="250.0" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="126.0" />
          </children>
          <BorderPane.margin>
             <Insets />

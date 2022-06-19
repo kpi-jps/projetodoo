@@ -1,19 +1,17 @@
 package com.vettodos.application.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.vettodos.Main;
 import com.vettodos.application.view.InicializadorDeTelas;
 import com.vettodos.model.domain.entities.animal.Animal;
-import com.vettodos.model.domain.entities.individuo.Usuario;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
@@ -28,6 +26,8 @@ public class ControllerBuscarAnimal {
     @FXML
     private Button btnBuscaTipo2;
     @FXML
+    private ChoiceBox<String> choiceBox1;
+    @FXML
     private Label labelBusca;
     @FXML
     private Label labelTituloTela;
@@ -37,15 +37,15 @@ public class ControllerBuscarAnimal {
     private TableColumn<Animal, String> colResultado;
     @FXML
     private TableView<Animal> resultadoBusca;
-    List <Animal> usuarios = new ArrayList<>();
     private ObservableList<Animal> resultados;
 
     @FXML
     private void initialize() throws Exception {
+        choiceBox1.setVisible(false);
         resultados = FXCollections.observableArrayList();
         labelTituloTela.setText("Buscar Animal");
         btnBuscaTipo1.setText("Buscar por nome");
-        btnBuscaTipo2.setText("Buscar por nome Tutor");
+        btnBuscaTipo2.setText("Buscar por Tutor");
         resultadoBusca.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         colResultado.setCellValueFactory(new PropertyValueFactory<>("nome"));
         resultadoBusca.setOnMouseClicked(event -> {

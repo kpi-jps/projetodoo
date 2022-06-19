@@ -1,5 +1,8 @@
 package com.vettodos.model.domain.entities.produto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public enum UnidadeMedida {
     MG("mg"),
     KG("Kg"), 
@@ -16,4 +19,17 @@ public enum UnidadeMedida {
     public String getNome() {
         return unidade;
     }
- }
+
+    
+    public static List<String> listarUnidades() {
+        List <String> unidades = new ArrayList<>();
+        for (UnidadeMedida u : UnidadeMedida.values()) unidades.add(u.getNome());
+        return unidades;
+    }
+
+    public static UnidadeMedida getUnidade(String unidade) {
+        for (UnidadeMedida u: UnidadeMedida.values()) 
+            if(unidade.equals(u.getNome())) return u;
+        return null;
+    }
+  }

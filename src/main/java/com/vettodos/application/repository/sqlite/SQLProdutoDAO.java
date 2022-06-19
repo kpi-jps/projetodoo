@@ -23,18 +23,9 @@ public class SQLProdutoDAO implements ProdutoDAO {
         String descricao = rs.getString("descricao");
         String unidadeMedida = rs.getString("unidade_medida");
         Double minimoEmEstoque = rs.getDouble("minimo_em_estoque");
-        Categoria categoriaEnun;
-        UnidadeMedida unidadeMedidaEnun;
-        try {
-            categoriaEnun = Categoria.valueOf(categoria);
-        } catch (Exception e) {
-            categoriaEnun = null;
-        }
-        try {
-            unidadeMedidaEnun = UnidadeMedida.valueOf(unidadeMedida);
-        } catch (Exception e) {
-            unidadeMedidaEnun = null;
-        }
+        Categoria categoriaEnun = Categoria.getCategoria(categoria);
+        UnidadeMedida unidadeMedidaEnun = UnidadeMedida.getUnidade(unidadeMedida);
+        
         return  new Produto(id, categoriaEnun, nome, descricao, unidadeMedidaEnun, minimoEmEstoque);
     }
 
@@ -74,8 +65,8 @@ public class SQLProdutoDAO implements ProdutoDAO {
 
     @Override
     public void editar(Produto produto) {
-        String sql = "UPDATE produto SET categoria = ?, nome = ?"+
-        "descricao = ?, unidade_medida = ?, minimo_em_estoque = ?" + 
+        String sql = "UPDATE produto SET categoria = ?, nome = ?, " +
+        "descricao = ?, unidade_medida = ?, minimo_em_estoque = ? " + 
         "WHERE id = ?;";
         try (PreparedStatement ps = FabricaDeConexao.criaPreparedStatement(sql)) {
             ps.setString(1, produto.getCategoria().getNome());
@@ -83,7 +74,7 @@ public class SQLProdutoDAO implements ProdutoDAO {
             ps.setString(3, produto.getDescricao());
             ps.setString(4, produto.getUnidadeMedida().getNome());
             ps.setDouble(5, produto.getMinimoEmEstoque());
-            ps.setLong(5, produto.getId());
+            ps.setLong(6, produto.getId());
             ps.execute();
         } catch (SQLException e) {
             e.printStackTrace();

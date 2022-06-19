@@ -25,7 +25,9 @@ import com.vettodos.model.domain.usecases.individuo.EditarTutor;
 import com.vettodos.model.domain.usecases.individuo.EditarUsuario;
 import com.vettodos.model.domain.usecases.individuo.TutorDAO;
 import com.vettodos.model.domain.usecases.individuo.UsuarioDAO;
+import com.vettodos.model.domain.usecases.produto.BuscarProduto;
 import com.vettodos.model.domain.usecases.produto.CadastrarProduto;
+import com.vettodos.model.domain.usecases.produto.EditarProduto;
 import com.vettodos.model.domain.usecases.produto.ProdutoDAO;
 
 
@@ -48,6 +50,8 @@ public class Main {
     public static BuscarAnimal buscarAnimal;
     public static EditarAnimal editarAnimal;
     public static CadastrarProduto cadastrarProduto;
+    public static EditarProduto editarProduto;
+    public static BuscarProduto buscarProduto;
     
     public static ModoOperacao modoOperacao;
     public static Usuario usuarioAutenticado;
@@ -83,5 +87,9 @@ public class Main {
         cadastrarAnimal = new CadastrarAnimal(animalDAO);
         buscarAnimal = new BuscarAnimal(animalDAO);
         editarAnimal = new EditarAnimal(animalDAO);
+        cadastrarProduto = new CadastrarProduto(produtoDAO);
+        editarProduto = new EditarProduto(produtoDAO);
+        buscarProduto = new BuscarProduto(produtoDAO);
+
     }
 }
