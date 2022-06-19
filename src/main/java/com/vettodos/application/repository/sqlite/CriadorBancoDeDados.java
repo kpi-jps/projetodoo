@@ -108,6 +108,7 @@ public class CriadorBancoDeDados {
             String tabelaRegistroEstoque = "CREATE TABLE registro_estoque (\n" +
                                     "id INTEGER PRIMARY KEY AUTOINCREMENT, \n" +
                                     "data TEXT NOT NULL, \n" +
+                                    "tipo_registro TEXT NOT NULL, \n" +
                                     "quantidade REAL NOT NULL,\n" +
                                     "id_produto INTEGER, \n" +
                                     "FOREIGN KEY(id_produto) REFERENCES produto(id) ON DELETE SET NULL \n"+

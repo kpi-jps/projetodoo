@@ -52,5 +52,15 @@ public abstract class Validadores {
         }
         return true;
     }
+
+    public static boolean validaNumeroRealMaioQueZero(String numero) {
+        try {
+            Double n = Double.parseDouble(numero);
+            if(n <= 0) return false;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
     
 }

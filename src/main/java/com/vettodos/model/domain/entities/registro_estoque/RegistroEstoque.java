@@ -1,7 +1,10 @@
-package com.vettodos.model.domain.entities.produto;
+package com.vettodos.model.domain.entities.registro_estoque;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
+
+import com.vettodos.model.domain.entities.produto.Produto;
 
 public class RegistroEstoque {
     
@@ -9,12 +12,17 @@ public class RegistroEstoque {
     private Produto produto;
     private LocalDateTime data;
     private Double quantidade;
+    private TipoRegistro tipoRegistro;
 
-    public RegistroEstoque (Produto produto, Double quantidade) {
-        data = LocalDateTime.now(); 
+
+    public RegistroEstoque( Produto produto, Double quantidade, TipoRegistro tipoRegistro) {
+        id = null;
+        data = LocalDateTime.now();
         this.produto = produto;
         this.quantidade = quantidade;
+        this.tipoRegistro = tipoRegistro;
     }
+    
 
     public Long getId() {
         return this.id;
@@ -41,13 +49,21 @@ public class RegistroEstoque {
     }
 
     public Double getQuantidade() {
-        return this.quantidade;
+        if(tipoRegistro == TipoRegistro.ENTRADA) return Math.abs(this.quantidade);
+        return (-1.0) * Math.abs(this.quantidade);
     }
 
     public void setQuantidade(Double quantidade) {
         this.quantidade = quantidade;
     }
 
+    public TipoRegistro getTipoRegistro() {
+        return this.tipoRegistro;
+    }
+
+    public void setTipoRegistro(TipoRegistro tipoRegistro) {
+        this.tipoRegistro = tipoRegistro;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -68,6 +84,7 @@ public class RegistroEstoque {
             " produto='" + getProduto().getNome() + "'" +
             ", data='" + getData() + "'" +
             ", quantidade='" + getQuantidade() + "'" +
+            ", tipo='" + getTipoRegistro().getTipo() + "'" +
             "}";
     }
 

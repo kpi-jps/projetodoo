@@ -14,8 +14,4 @@ public interface ProdutoDAO {
 
     void editar(Produto produto);
 
-    void registroEstoque(Produto produto, Double quantidade);
-
-    Double totalEmEstoque(Produto produto);
-
 }

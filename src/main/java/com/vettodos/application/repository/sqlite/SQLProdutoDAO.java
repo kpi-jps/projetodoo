@@ -3,7 +3,6 @@ package com.vettodos.application.repository.sqlite;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,38 +80,5 @@ public class SQLProdutoDAO implements ProdutoDAO {
         }  
         
     }
-
-    @Override
-    public void registroEstoque(Produto produto, Double quantidade) {
-        String sql = "INSERT INTO registro_estoque("+
-        "data, quantidade, id_produto" + 
-        "VALUES (?, ?, ?);";
-        try (PreparedStatement ps = FabricaDeConexao.criaPreparedStatement(sql)) {
-            ps.setString(1, LocalDateTime.now().toString());
-            ps.setDouble(2, quantidade);
-            ps.setLong(3, produto.getId());
-            ps.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }  
-        
-    }
-
-    @Override
-    public Double totalEmEstoque(Produto produto) {
-        String sql = "SELECT COUNT(quantidade) AS total FROM registro_estoque WHERE id_produto = ?;";
-        Double total = 0.0;
-        try (PreparedStatement ps =  FabricaDeConexao.criaPreparedStatement(sql)) {
-            ps.setLong(1, produto.getId());
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                total = rs.getDouble("total");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return total;
-    }
-
 
 }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #AFEEEE;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="1800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="labelTituloTela" layoutX="160.0" layoutY="45.0" text="Registro estoque" textFill="#07076e" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="45.0">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelQuantidade" layoutX="60.0" layoutY="130.0" text="Quantidade:" textFill="#07076e" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="130.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtQuantidade" layoutX="60.0" layoutY="164.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="200.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="165.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btnBuscaTipo1" layoutX="60.0" layoutY="370.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="220.0" style="-fx-background-color: #07076e;" text="Salvar registro" textFill="WHITE" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="370.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Label fx:id="labelTipoAlteracao" layoutX="320.0" layoutY="130.0" text="Tipo de alteraçao:" textFill="#07076e">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="choiceBoxTipoAlteracao" layoutX="320.0" layoutY="169.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="165.0" />
+            <Label fx:id="labelNomeProduto" layoutX="60.0" layoutY="226.0" text="Nome produto:" textFill="#07076e" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="226.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelQuantidadeEmEstoque" layoutX="60.0" layoutY="266.0" text="Quantidade em estoque: " textFill="#07076e">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelQuantidadeMinima" layoutX="60.0" layoutY="307.0" text="Quantidade em minima " textFill="#07076e">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

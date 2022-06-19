@@ -46,6 +46,13 @@ public class InicializadorDeTelas extends Application{
         modalStage.showAndWait();
     }
 
+    public static void trocarTelaModal(String fxml, Object controller) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setController(controller);
+        Parent parent = fxmlLoader.load(InicializadorDeTelas.class.getResource(fxml + ".fxml").openStream());
+        modalScene.setRoot(parent);
+    }
+
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
         stage.sizeToScene();

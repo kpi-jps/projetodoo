@@ -10,6 +10,7 @@ module com.vettodos {
     opens com.vettodos.model.domain.entities.individuo to javafx.base;
     opens com.vettodos.model.domain.entities.animal to javafx.base;
     opens com.vettodos.model.domain.entities.produto to javafx.base;
+    opens com.vettodos.model.domain.entities.registro_estoque to javafx.base;
     
 
     exports com.vettodos.application.view;

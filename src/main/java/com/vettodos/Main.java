@@ -4,6 +4,7 @@ import com.vettodos.application.controller.ModoOperacao;
 import com.vettodos.application.repository.sqlite.CriadorBancoDeDados;
 import com.vettodos.application.repository.sqlite.SQLAnimalDAO;
 import com.vettodos.application.repository.sqlite.SQLProdutoDAO;
+import com.vettodos.application.repository.sqlite.SQLRegistroEstoque;
 import com.vettodos.application.repository.sqlite.SQLTutorDAO;
 import com.vettodos.application.repository.sqlite.SQLUsuarioDAO;
 import com.vettodos.application.view.InicializadorDeTelas;
@@ -29,6 +30,8 @@ import com.vettodos.model.domain.usecases.produto.BuscarProduto;
 import com.vettodos.model.domain.usecases.produto.CadastrarProduto;
 import com.vettodos.model.domain.usecases.produto.EditarProduto;
 import com.vettodos.model.domain.usecases.produto.ProdutoDAO;
+import com.vettodos.model.domain.usecases.registro_estoque.RealizarRegistroEstoque;
+import com.vettodos.model.domain.usecases.registro_estoque.RegistroEstoqueDAO;
 
 
 public class Main {
@@ -37,6 +40,7 @@ public class Main {
     private static TutorDAO tutorDAO;
     private static AnimalDAO animalDAO;
     private static ProdutoDAO produtoDAO;
+    private static RegistroEstoqueDAO registroEstoqueDAO;
 
     public static BuscarTutor buscarTutor;
     public static BuscarUsuario buscarUsuario;
@@ -52,6 +56,7 @@ public class Main {
     public static CadastrarProduto cadastrarProduto;
     public static EditarProduto editarProduto;
     public static BuscarProduto buscarProduto;
+    public static RealizarRegistroEstoque realizarRegistroEstoque;
     
     public static ModoOperacao modoOperacao;
     public static Usuario usuarioAutenticado;
@@ -74,6 +79,7 @@ public class Main {
         tutorDAO = new SQLTutorDAO();
         produtoDAO = new SQLProdutoDAO();
         animalDAO = new SQLAnimalDAO();
+        registroEstoqueDAO = new SQLRegistroEstoque();
     }
     private static void carregarCasosDeUso() {
         buscarTutor = new BuscarTutor(tutorDAO);
@@ -90,6 +96,6 @@ public class Main {
         cadastrarProduto = new CadastrarProduto(produtoDAO);
         editarProduto = new EditarProduto(produtoDAO);
         buscarProduto = new BuscarProduto(produtoDAO);
-
+        realizarRegistroEstoque = new RealizarRegistroEstoque(registroEstoqueDAO);
     }
 }

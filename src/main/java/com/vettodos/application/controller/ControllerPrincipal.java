@@ -235,7 +235,8 @@ public class ControllerPrincipal {
     }
 
     public void gerenciarEstoque() throws IOException {
-        //InicializadorDeTelas.setRoot("tela-gerecia-estoque");
+        modoOperacao = ModoOperacao.EDITAR;
+        InicializadorDeTelas.mostrarTelaModal("tela-busca", new ControllerBuscarProduto());
     }
 
 

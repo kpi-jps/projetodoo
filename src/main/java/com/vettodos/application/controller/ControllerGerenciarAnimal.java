@@ -151,12 +151,13 @@ public class ControllerGerenciarAnimal {
             choiceBoxSexo.getValue(), 
             Double.parseDouble(txtPeso.getText()), 
             Integer.parseInt(txtAnoNascimento.getText()),
-            !checkboxStatus.isSelected(), tutorSelecionado
+            !checkboxStatus.isSelected(), 
+            tutorSelecionado
         );
     }
 
     private void setDados(Animal animal) {
-        checkboxStatus.setSelected(animal.isStatus());
+        checkboxStatus.setSelected(!animal.isStatus());
         choiceBoxEspecie.setValue(animal.getEspecie().getNomeEspecie());
         choiceBoxSexo.setValue(animal.getSexo());
         choiceBoxRaca.setValue(animal.getRaca().getNomeRaca());
