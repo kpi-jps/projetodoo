@@ -3,9 +3,8 @@ package com.vettodos.model.domain.usecases.atendimento;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.vettodos.model.domain.entities.animal.Animal;
+
 import com.vettodos.model.domain.entities.atendimento.Atendimento;
-import com.vettodos.model.domain.entities.individuo.Veterinario;
 
 
 public interface AtendimentoDAO {

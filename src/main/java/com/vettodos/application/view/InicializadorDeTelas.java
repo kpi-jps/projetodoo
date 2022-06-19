@@ -21,6 +21,10 @@ public class InicializadorDeTelas extends Application{
         modalStage.close();
     }
 
+    public static Stage getStage() {
+        return stage;
+    }
+    
     @Override
     public void start(Stage stage) throws Exception {
         InicializadorDeTelas.stage = stage;

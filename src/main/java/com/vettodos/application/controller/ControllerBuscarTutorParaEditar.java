@@ -23,7 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class ControllerBuscarTutor {
+public class ControllerBuscarTutorParaEditar {
     @FXML
     private Button btnBuscaTipo1;
     @FXML
@@ -70,6 +70,7 @@ public class ControllerBuscarTutor {
     public void retornarResultadoBusca() throws IOException {
         tutorSelecionado = resultadoBusca.getSelectionModel().getSelectedItem();
         InicializadorDeTelas.fecharModal();
+        InicializadorDeTelas.setRoot("tela-gerenciamento-tutor");
     }
     
     public void buscarPorCPF() {
@@ -101,4 +102,3 @@ public class ControllerBuscarTutor {
     }
 
 }
-

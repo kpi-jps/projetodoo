@@ -4,17 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import com.vettodos.model.domain.entities.animal.Animal;
-import com.vettodos.model.domain.entities.individuo.Tutor;
 
 public interface AnimalDAO {
     
-    List<Animal> buscarTodos();
 
-    List<Animal> buscarPorNome(String nome);
+    List<Animal> buscarPorNome(String nomeAnimal);
 
-    List<Animal> buscarPorTutor(Tutor tutor);
-
-    Optional <Animal> buscarPorID(Integer id);
+    List<Animal> buscarPorTutor(String nomeTutor);
 
     void salvar(Animal animal);
 

@@ -1,5 +1,8 @@
 package com.vettodos.model.domain.entities.animal;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public enum Especie {
     AVE("Ave"), 
     CACHORRO("Cachorro"), 
@@ -17,9 +20,20 @@ public enum Especie {
         this.especie = especie;
     }
 
-    public String getEspecie() {
+    public String getNomeEspecie() {
         return especie;
     }
 
+    public static Especie retornaEspecie(String nomeEspecie) {
+        for (Especie e : Especie.values()) 
+            if(e.getNomeEspecie().equals(nomeEspecie)) return e;
+        return null;
+    }
+
+    public static List<String> listar() {
+        List<String> especies = new ArrayList<>();
+        for (Especie e : Especie.values()) especies.add(e.getNomeEspecie());
+        return especies;
+    }
 
 }

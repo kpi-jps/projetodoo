@@ -132,14 +132,22 @@ public enum Raca {
         return especie;
     }
 
-    public String getRaca() {
+    public String getNomeRaca() {
         return raca;
     }
 
-    public List <Raca> listarRacas(Especie especie) {
-        List <Raca> racas = new ArrayList<>();
+    public static Raca retornaRaca(String nomeRaca) {
+        for (Raca r : Raca.values()) 
+            if(r.getNomeRaca().equals(nomeRaca)) return r;
+        return null;
+    }
+
+    public static List <String> listarRacas(String nomeEspecie) {
+        List <String> racas = new ArrayList<>();
         for (Raca raca : Raca.values()) 
-            if(raca.getEspecie() == especie) racas.add(raca);
+            if(raca.getEspecie().getNomeEspecie().equals(nomeEspecie)) racas.add(raca.getNomeRaca());
         return racas;
     }
+
+    
 }

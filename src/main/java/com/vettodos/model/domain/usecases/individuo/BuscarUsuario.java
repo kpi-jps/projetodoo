@@ -24,8 +24,9 @@ public class BuscarUsuario {
 
     public List<Usuario> buscarPorNome(String nome) {
         if(Validadores.nuloOuVazio(nome)) throw new EntradaInvalidaException("Nome nulo ou vazio! ");
-        if(usuarioDAO.buscarPorNome(nome).isEmpty()) throw new EntidadeNaoEncontradaException("Usuário não encontrado! ");
-        return usuarioDAO.buscarPorNome(nome);
+        List<Usuario> usuarios = usuarioDAO.buscarPorNome(nome); 
+        if(usuarios.isEmpty()) throw new EntidadeNaoEncontradaException("Usuário não encontrado! ");
+        return usuarios;
     }
      
 }

@@ -102,10 +102,10 @@ public enum Cidade {
         return cidades;
     }
 
-    public static List <String> listarNomeCidades(Estado estado) {
+    public static List <String> listarNomeCidades(String sigleEstado) {
         List <String> cidades = new ArrayList<>();
         for (Cidade cidade : Cidade.values()) 
-            if(cidade.getEstado() == estado) cidades.add(cidade.getNomeCidade());
+            if(cidade.getEstado().getSigla().equals(sigleEstado)) cidades.add(cidade.getNomeCidade());
         return cidades;
     }
 }

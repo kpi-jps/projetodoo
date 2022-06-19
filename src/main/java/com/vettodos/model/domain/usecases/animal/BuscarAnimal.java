@@ -10,26 +10,23 @@ import com.vettodos.model.domain.usecases.util.Validadores;
 
 public class BuscarAnimal {
     private AnimalDAO animalDAO;
-
-    public Animal buscarPorID(Integer id) {
-        return animalDAO.buscarPorID(id)
-            .orElseThrow(() -> new EntidadeNaoEncontradaException("Animal não encontrado!"));
-    }
     
     public BuscarAnimal(AnimalDAO animalDAO) {
         this.animalDAO = animalDAO;
     }
 
-    public List<Animal> buscarPorNome(String nome) {
-        if(Validadores.nuloOuVazio(nome)) throw new EntradaInvalidaException("Nome nulo ou vazio! ");
-        if(animalDAO.buscarPorNome(nome).isEmpty()) throw new EntidadeNaoEncontradaException("Animal não encontrado! ");
-        return animalDAO.buscarPorNome(nome); 
+    public List<Animal> buscarPorNome(String nomeAnimal) {
+        if(Validadores.nuloOuVazio(nomeAnimal)) throw new EntradaInvalidaException("Nome nulo ou vazio! ");
+        List<Animal> animais = animalDAO.buscarPorNome(nomeAnimal);
+        if(animais.isEmpty()) throw new EntidadeNaoEncontradaException("Animal não encontrado! ");
+        return animais; 
     }
 
-    public List<Animal> buscarPorTutor(Tutor tutor) {
-        if(Validadores.nuloOuVazio(tutor)) throw new EntradaInvalidaException("Tutor não informado! ");
-        if(animalDAO.buscarPorTutor(tutor).isEmpty()) throw new EntidadeNaoEncontradaException("Animal não encontrado! ");
-        return animalDAO.buscarPorTutor(tutor);
+    public List<Animal> buscarPorTutor(String nomeTutor) {
+        if(Validadores.nuloOuVazio(nomeTutor)) throw new EntradaInvalidaException("Tutor não informado! ");
+        List<Animal> animais = animalDAO.buscarPorTutor(nomeTutor);
+        if(animais.isEmpty()) throw new EntidadeNaoEncontradaException("Animal não encontrado! ");
+        return animais;
     }
 
 }

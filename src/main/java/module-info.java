@@ -8,6 +8,8 @@ module com.vettodos {
     opens com.vettodos.application.view to javafx.fxml;
     opens com.vettodos.application.controller to javafx.fxml;
     opens com.vettodos.model.domain.entities.individuo to javafx.base;
+    opens com.vettodos.model.domain.entities.animal to javafx.base;
+    opens com.vettodos.model.domain.entities.produto to javafx.base;
     
 
     exports com.vettodos.application.view;

@@ -98,11 +98,11 @@ public class ControllerGerenciarTutor {
     }
 
     private void preencherListaCidade() {
-        choiceBoxCidade.getItems().setAll(Cidade.listarNomeCidades(Estado.valueOf(choiceBoxEstado.getValue())));
+        choiceBoxCidade.getItems().setAll(Cidade.listarNomeCidades(choiceBoxEstado.getValue()));
     }
 
     private void preencherListaEstados() {
-        choiceBoxEstado.getItems().setAll(Estado.getSiglaEstados());
+        choiceBoxEstado.getItems().setAll(Estado.listarSiglaEstados());
         choiceBoxEstado.setValue(choiceBoxEstado.getItems().get(0));
     }
 
@@ -132,7 +132,7 @@ public class ControllerGerenciarTutor {
                 txtCEP.getText(), 
                 txtNumero.getText(), 
                 Cidade.getCidade(choiceBoxCidade.getValue()),
-                Estado.getSiglaEstado(choiceBoxEstado.getValue()), 
+                Estado.getEstado(choiceBoxEstado.getValue()), 
                 txtComplemento.getText()
                 )
             );

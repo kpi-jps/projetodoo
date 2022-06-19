@@ -86,6 +86,7 @@ public class CriadorBancoDeDados {
                                     "); \n";
             String tabelaAnimal = "CREATE TABLE animal (\n" +
                                     "id INTEGER PRIMARY KEY AUTOINCREMENT, \n" +
+                                    "nome TEXT NOT NULL, \n" +
                                     "especie TEXT NOT NULL, \n" +
                                     "raca TEXT NOT NULL, \n"+
                                     "porte TEXT NOT NULL, \n"+

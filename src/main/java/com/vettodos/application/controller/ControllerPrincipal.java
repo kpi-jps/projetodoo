@@ -211,15 +211,17 @@ public class ControllerPrincipal {
 
     public void editarTutor() throws IOException {
         modoOperacao = ModoOperacao.EDITAR;
-        InicializadorDeTelas.mostrarTelaModal("tela-busca-tipo1", new ControllerBuscarTutor());
+        InicializadorDeTelas.mostrarTelaModal("tela-busca-tipo1", new ControllerBuscarTutorParaEditar());
     }
 
     public void cadastrarAnimal() throws IOException {
-        //InicializadorDeTelas.setRoot("tela-cadastra-animal");
+        modoOperacao = ModoOperacao.CRIAR;
+        InicializadorDeTelas.setRoot("tela-gerenciamento-animal");
     }
 
     public void editarAnimal() throws IOException {
-        //InicializadorDeTelas.setRoot("tela-edita-animal");
+        modoOperacao = ModoOperacao.EDITAR;
+        InicializadorDeTelas.mostrarTelaModal("tela-busca-tipo1", new ControllerBuscarAnimal());
     }
 
     public void cadastrarProduto() throws IOException {

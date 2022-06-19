@@ -14,22 +14,27 @@ public class Animal {
     private Raca raca;
     private Porte porte;
     private String sexo;
-    private String obervacao;
     private Double peso;
     private int anoNascimento;
     private Boolean status;
     private Tutor tutor;
 
-    public Animal(Long id, String nome, Especie especie, Raca raca, Tutor tutor) {
+
+    public Animal(Long id, String nome, Especie especie, Raca raca, Porte porte, String sexo, Double peso, int anoNascimento, Boolean status, Tutor tutor) {
+        this.id = id;
         this.nome = nome;
         this.especie = especie;
         this.raca = raca;
+        this.porte = porte;
+        this.sexo = sexo;
+        this.peso = peso;
+        this.anoNascimento = anoNascimento;
+        this.status = status;
         this.tutor = tutor;
-        status = true;
     }
 
-    public Animal(String nome, Especie especie, Raca raca, Tutor tutor) {
-        this(null, nome, especie, raca, tutor);
+    public Animal(String nome, Especie especie, Raca raca, Porte porte, String sexo, Double peso, int anoNascimento, Boolean status, Tutor tutor) {
+        this(null, nome, especie, raca, porte, sexo, peso, anoNascimento, status, tutor);
     }
 
     public Long getId() {
@@ -78,14 +83,6 @@ public class Animal {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
-    }
-
-    public String getObervacao() {
-        return obervacao;
-    }
-
-    public void setObervacao(String obervacao) {
-        this.obervacao = obervacao;
     }
 
     public Double getPeso() {
@@ -142,8 +139,8 @@ public class Animal {
         return "{" +
             " id='" + getId() + "'" +
             ", nome='" + getNome() + "'" +
-            ", especie='" + getEspecie().getEspecie() + "'" +
-            ", raca ='" + getRaca().getRaca() + "'" +
+            ", especie='" + getEspecie().getNomeEspecie() + "'" +
+            ", raca ='" + getRaca().getNomeRaca() + "'" +
             ", tutor='" + getTutor().getNome() + "'" +
             "}";
     }

@@ -1,15 +1,20 @@
 package com.vettodos;
 
-import java.util.List;
-
 import com.vettodos.application.controller.ModoOperacao;
 import com.vettodos.application.repository.sqlite.CriadorBancoDeDados;
+import com.vettodos.application.repository.sqlite.SQLAnimalDAO;
 import com.vettodos.application.repository.sqlite.SQLProdutoDAO;
 import com.vettodos.application.repository.sqlite.SQLTutorDAO;
 import com.vettodos.application.repository.sqlite.SQLUsuarioDAO;
 import com.vettodos.application.view.InicializadorDeTelas;
+import com.vettodos.model.domain.entities.animal.Animal;
 import com.vettodos.model.domain.entities.individuo.Tutor;
 import com.vettodos.model.domain.entities.individuo.Usuario;
+import com.vettodos.model.domain.entities.produto.Produto;
+import com.vettodos.model.domain.usecases.animal.AnimalDAO;
+import com.vettodos.model.domain.usecases.animal.BuscarAnimal;
+import com.vettodos.model.domain.usecases.animal.CadastrarAnimal;
+import com.vettodos.model.domain.usecases.animal.EditarAnimal;
 import com.vettodos.model.domain.usecases.individuo.AutenticarUsuario;
 import com.vettodos.model.domain.usecases.individuo.BuscarTutor;
 import com.vettodos.model.domain.usecases.individuo.BuscarUsuario;
@@ -20,6 +25,7 @@ import com.vettodos.model.domain.usecases.individuo.EditarTutor;
 import com.vettodos.model.domain.usecases.individuo.EditarUsuario;
 import com.vettodos.model.domain.usecases.individuo.TutorDAO;
 import com.vettodos.model.domain.usecases.individuo.UsuarioDAO;
+import com.vettodos.model.domain.usecases.produto.CadastrarProduto;
 import com.vettodos.model.domain.usecases.produto.ProdutoDAO;
 
 
@@ -27,6 +33,7 @@ public class Main {
     
     private static UsuarioDAO usuarioDAO;
     private static TutorDAO tutorDAO;
+    private static AnimalDAO animalDAO;
     private static ProdutoDAO produtoDAO;
 
     public static BuscarTutor buscarTutor;
@@ -37,11 +44,17 @@ public class Main {
     public static EditarSenhaUsuario editarSenhaUsuario;
     public static CadastrarTutor cadastrarTutor;
     public static EditarTutor editarTutor;
+    public static CadastrarAnimal cadastrarAnimal;
+    public static BuscarAnimal buscarAnimal;
+    public static EditarAnimal editarAnimal;
+    public static CadastrarProduto cadastrarProduto;
     
     public static ModoOperacao modoOperacao;
     public static Usuario usuarioAutenticado;
     public static Usuario usuarioSelecionado;
     public static Tutor tutorSelecionado;
+    public static Animal animalSelecionado;
+    public static Produto produtoSelecionado;
 
     public static void main(String[] args) {
         usuarioAutenticado = null;
@@ -56,6 +69,7 @@ public class Main {
         usuarioDAO = new SQLUsuarioDAO();
         tutorDAO = new SQLTutorDAO();
         produtoDAO = new SQLProdutoDAO();
+        animalDAO = new SQLAnimalDAO();
     }
     private static void carregarCasosDeUso() {
         buscarTutor = new BuscarTutor(tutorDAO);
@@ -66,5 +80,8 @@ public class Main {
         editarUsuario = new EditarUsuario(usuarioDAO);
         cadastrarTutor = new CadastrarTutor(tutorDAO);
         editarTutor = new EditarTutor(tutorDAO);
+        cadastrarAnimal = new CadastrarAnimal(animalDAO);
+        buscarAnimal = new BuscarAnimal(animalDAO);
+        editarAnimal = new EditarAnimal(animalDAO);
     }
 }

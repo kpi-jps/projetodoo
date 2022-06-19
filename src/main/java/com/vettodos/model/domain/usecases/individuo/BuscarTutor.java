@@ -24,7 +24,8 @@ public class BuscarTutor {
 
     public List<Tutor> buscarPorNome(String nome) {
         if(Validadores.nuloOuVazio(nome)) throw new EntradaInvalidaException("Nome nulo ou vazio! ");
-        if(tutorDAO.buscarPorNome(nome).isEmpty()) throw new EntidadeNaoEncontradaException("Tutor não encontrado! ");
-        return tutorDAO.buscarPorNome(nome);
+        List<Tutor> tutores = tutorDAO.buscarPorNome(nome);
+        if(tutores.isEmpty()) throw new EntidadeNaoEncontradaException("Tutor não encontrado! ");
+        return tutores;
     }
 }

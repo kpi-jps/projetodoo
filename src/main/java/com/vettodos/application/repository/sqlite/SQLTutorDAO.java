@@ -29,20 +29,8 @@ public class SQLTutorDAO implements TutorDAO {
         String cidade = rs.getString("cidade");
         String estado = rs.getString("estado");
         String complemento = rs.getString("complemento");
-        Cidade cidadeEnun;
-        Estado estadoEnun;
-        try {
-            cidadeEnun = Cidade.getCidade(cidade);
-        } catch (Exception e) {
-            e.printStackTrace();
-            cidadeEnun = null;
-        }
-        try {
-            estadoEnun = Estado.getSiglaEstado(estado);
-        } catch (Exception e) {
-            e.printStackTrace();
-            estadoEnun = null;
-        }
+        Cidade cidadeEnun = Cidade.getCidade(cidade);
+        Estado estadoEnun = Estado.getEstado(estado);
         Endereco endereco = new Endereco(id_endereco, 
             logradouro, cep, 
             numero, 

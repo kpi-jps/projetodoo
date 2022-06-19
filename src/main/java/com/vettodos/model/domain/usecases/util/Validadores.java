@@ -43,5 +43,14 @@ public abstract class Validadores {
         }
         return true;
     }
+
+    public static boolean validaNumeroReal(String numero) {
+        try {
+            Double n = Double.parseDouble(numero);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
     
 }

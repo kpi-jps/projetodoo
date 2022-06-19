@@ -48,13 +48,13 @@ public enum Estado {
         return nome;
     }
 
-    public static List<String> getSiglaEstados() {
+    public static List<String> listarSiglaEstados() {
         List <String> siglas = new ArrayList<>();
         for (Estado estado : Estado.values()) siglas.add(estado.getSigla());
         return siglas;
     }
 
-    public static Estado getSiglaEstado(String siglaEstado) {
+    public static Estado getEstado(String siglaEstado) {
         for (Estado estado : Estado.values()) 
             if(siglaEstado.equals(estado.getSigla())) return estado;
         return null;

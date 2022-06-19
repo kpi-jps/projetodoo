@@ -6,9 +6,8 @@ import java.util.List;
 
 import com.vettodos.Main;
 import com.vettodos.application.view.InicializadorDeTelas;
-import com.vettodos.model.domain.entities.individuo.Tutor;
-
-import static com.vettodos.Main.*;
+import com.vettodos.model.domain.entities.animal.Animal;
+import com.vettodos.model.domain.entities.individuo.Usuario;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,7 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class ControllerBuscarTutor {
+public class ControllerBuscarAnimal {
     @FXML
     private Button btnBuscaTipo1;
     @FXML
@@ -35,20 +34,20 @@ public class ControllerBuscarTutor {
     @FXML
     private TextField txtEntradaBusca;
     @FXML
-    private TableColumn<Tutor, String> colResultado;
+    private TableColumn<Animal, String> colResultado;
     @FXML
-    private TableView<Tutor> resultadoBusca;
-    List <Tutor> tutores = new ArrayList<>();
-    private ObservableList<Tutor> resultados;
+    private TableView<Animal> resultadoBusca;
+    List <Animal> usuarios = new ArrayList<>();
+    private ObservableList<Animal> resultados;
 
     @FXML
     private void initialize() throws Exception {
         resultados = FXCollections.observableArrayList();
-        labelTituloTela.setText("Buscar Tutor");
-        btnBuscaTipo1.setText("Buscar por CPF");
-        btnBuscaTipo2.setText("Buscar por nome");
+        labelTituloTela.setText("Buscar Animal");
+        btnBuscaTipo1.setText("Buscar por nome");
+        btnBuscaTipo2.setText("Buscar por nome Tutor");
         resultadoBusca.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        colResultado.setCellValueFactory(new PropertyValueFactory<>("Nome"));
+        colResultado.setCellValueFactory(new PropertyValueFactory<>("nome"));
         resultadoBusca.setOnMouseClicked(event -> {
             try {
                 retornarResultadoBusca();
@@ -58,24 +57,23 @@ public class ControllerBuscarTutor {
         });
         
         btnBuscaTipo1.setOnAction(event ->  {
-            buscarPorCPF();  
+            buscarPorNome();  
         });
 
         btnBuscaTipo2.setOnAction(event ->  {
-            buscarPorNome();  
+            buscarPorTutor();  
         });
         
     }
-    
     public void retornarResultadoBusca() throws IOException {
-        tutorSelecionado = resultadoBusca.getSelectionModel().getSelectedItem();
+        Main.animalSelecionado = resultadoBusca.getSelectionModel().getSelectedItem();
         InicializadorDeTelas.fecharModal();
+        InicializadorDeTelas.setRoot("tela-gerenciamento-animal");
     }
-    
-    public void buscarPorCPF() {
+    public void buscarPorTutor() {
         resultados.clear();
         try {
-            resultados.add(Main.buscarTutor.buscarPorCPF(txtEntradaBusca.getText()));
+            resultados.addAll(Main.buscarAnimal.buscarPorTutor(txtEntradaBusca.getText()));
             resultadoBusca.setItems(resultados);
         } catch (Exception e) {
             alerta("Erro", e.getMessage(), AlertType.ERROR);
@@ -85,7 +83,7 @@ public class ControllerBuscarTutor {
     public void buscarPorNome() {
         resultados.clear();
         try {
-            resultados.addAll(Main.buscarTutor.buscarPorNome(txtEntradaBusca.getText()));
+            resultados.addAll(Main.buscarAnimal.buscarPorNome(txtEntradaBusca.getText()));
             resultadoBusca.setItems(resultados);
         } catch (Exception e) {
             alerta("Erro", e.getMessage(), AlertType.ERROR);
@@ -101,4 +99,3 @@ public class ControllerBuscarTutor {
     }
 
 }
-

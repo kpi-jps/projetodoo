@@ -16,7 +16,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import com.vettodos.application.view.InicializadorDeTelas;
-import com.vettodos.model.domain.entities.individuo.Veterinario;
 
 
 public class ControllerAutenticarUsuario {
