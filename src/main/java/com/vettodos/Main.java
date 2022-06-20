@@ -3,8 +3,9 @@ package com.vettodos;
 import com.vettodos.application.controller.ModoOperacao;
 import com.vettodos.application.repository.sqlite.CriadorBancoDeDados;
 import com.vettodos.application.repository.sqlite.SQLAnimalDAO;
+import com.vettodos.application.repository.sqlite.SQLAtendimentoDAO;
 import com.vettodos.application.repository.sqlite.SQLProdutoDAO;
-import com.vettodos.application.repository.sqlite.SQLRegistroEstoque;
+import com.vettodos.application.repository.sqlite.SQLRegistroEstoqueDAO;
 import com.vettodos.application.repository.sqlite.SQLTutorDAO;
 import com.vettodos.application.repository.sqlite.SQLUsuarioDAO;
 import com.vettodos.application.view.InicializadorDeTelas;
@@ -16,6 +17,8 @@ import com.vettodos.model.domain.usecases.animal.AnimalDAO;
 import com.vettodos.model.domain.usecases.animal.BuscarAnimal;
 import com.vettodos.model.domain.usecases.animal.CadastrarAnimal;
 import com.vettodos.model.domain.usecases.animal.EditarAnimal;
+import com.vettodos.model.domain.usecases.atendimento.AtendimentoDAO;
+import com.vettodos.model.domain.usecases.atendimento.RealizarAtendimento;
 import com.vettodos.model.domain.usecases.individuo.AutenticarUsuario;
 import com.vettodos.model.domain.usecases.individuo.BuscarTutor;
 import com.vettodos.model.domain.usecases.individuo.BuscarUsuario;
@@ -41,6 +44,7 @@ public class Main {
     private static AnimalDAO animalDAO;
     private static ProdutoDAO produtoDAO;
     private static RegistroEstoqueDAO registroEstoqueDAO;
+    private static AtendimentoDAO atendimentoDAO;
 
     public static BuscarTutor buscarTutor;
     public static BuscarUsuario buscarUsuario;
@@ -57,6 +61,7 @@ public class Main {
     public static EditarProduto editarProduto;
     public static BuscarProduto buscarProduto;
     public static RealizarRegistroEstoque realizarRegistroEstoque;
+    public static RealizarAtendimento realizarAtendimento;
     
     public static ModoOperacao modoOperacao;
     public static Usuario usuarioAutenticado;
@@ -79,7 +84,8 @@ public class Main {
         tutorDAO = new SQLTutorDAO();
         produtoDAO = new SQLProdutoDAO();
         animalDAO = new SQLAnimalDAO();
-        registroEstoqueDAO = new SQLRegistroEstoque();
+        registroEstoqueDAO = new SQLRegistroEstoqueDAO();
+        atendimentoDAO = new SQLAtendimentoDAO();
     }
     private static void carregarCasosDeUso() {
         buscarTutor = new BuscarTutor(tutorDAO);
@@ -97,5 +103,6 @@ public class Main {
         editarProduto = new EditarProduto(produtoDAO);
         buscarProduto = new BuscarProduto(produtoDAO);
         realizarRegistroEstoque = new RealizarRegistroEstoque(registroEstoqueDAO);
+        realizarAtendimento = new RealizarAtendimento(atendimentoDAO);
     }
 }

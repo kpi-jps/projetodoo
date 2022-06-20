@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:controller="com.vettodos.application.controller.ControllerRegistrarAtendimento" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #AFEEEE;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" >
+   <bottom>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="900.0" prefWidth="1800.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="logo" fitHeight="83.0" fitWidth="169.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+            <Label fx:id="labelTituloTela" layoutX="214.0" layoutY="52.0" text="Titulo tela" textFill="#07076e" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="45.0">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnVoltar" layoutX="745.0" layoutY="107.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #07076e;" text="Voltar" textFill="WHITE" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="140.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="labelAnimal" layoutX="60.0" layoutY="231.0" text="Animal selecionado" textFill="#07076e" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="231.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnSalvarOuEditar" layoutX="60.0" layoutY="613.0" mnemonicParsing="false" onAction="#salvar" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #07076e;" text="Salvar" textFill="WHITE" AnchorPane.leftAnchor="60.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="iconeUsuario" fitHeight="180.0" fitWidth="183.0" layoutX="772.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0" />
+            <Label fx:id="labelQueixa" layoutX="60.0" layoutY="264.0" text="Queixa:" textFill="#07076e" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="264.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="textAreaQueixa" layoutX="60.0" layoutY="296.0" prefHeight="50.0" prefWidth="600.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="296.0" />
+            <Label fx:id="labelVeterinario" layoutX="60.0" layoutY="197.0" text="Veterinario selecionado" textFill="#07076e">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelDiagnostico" layoutX="60.0" layoutY="357.0" text="Diagnostico:" textFill="#07076e">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="textAreaDiagnostico" layoutX="60.0" layoutY="389.0" prefHeight="50.0" prefWidth="600.0" />
+            <Label fx:id="labelReceituario" layoutX="60.0" layoutY="451.0" text="Receituario:" textFill="#07076e">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="textAreaReceituario" layoutX="60.0" layoutY="483.0" prefHeight="100.0" prefWidth="600.0" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

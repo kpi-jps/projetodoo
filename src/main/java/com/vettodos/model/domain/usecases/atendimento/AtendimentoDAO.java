@@ -9,8 +9,6 @@ import com.vettodos.model.domain.entities.atendimento.Atendimento;
 
 public interface AtendimentoDAO {
 
-    List<Atendimento> buscarTodos();
-
     //List<Atendimento> buscarPorAnimal(Animal animal);
 
     //List<Atendimento> buscarPorVeterinario(Veterinario veterinario);

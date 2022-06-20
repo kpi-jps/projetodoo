@@ -189,7 +189,14 @@ public class ControllerPrincipal {
                 e.printStackTrace();
             }
         });
-        btn8.setVisible(false);
+        btn8.setText("Registrar Atendimento");
+        btn8.setOnAction(event -> {
+            try {
+                registrarAtendimento();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
         btn9.setVisible(false);
     }
 
@@ -237,6 +244,11 @@ public class ControllerPrincipal {
     public void gerenciarEstoque() throws IOException {
         modoOperacao = ModoOperacao.EDITAR;
         InicializadorDeTelas.mostrarTelaModal("tela-busca", new ControllerBuscarProduto());
+    }
+
+    public void registrarAtendimento() throws IOException {
+        modoOperacao = ModoOperacao.CRIAR;
+        InicializadorDeTelas.mostrarTelaModal("tela-busca", new ControllerBuscarAnimalParaAtendimento());
     }
 
 

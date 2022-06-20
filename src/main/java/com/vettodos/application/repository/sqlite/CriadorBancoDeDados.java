@@ -53,6 +53,8 @@ public class CriadorBancoDeDados {
             throw e;
         }
     }
+
+    
     private static void construir() throws SQLException {
         try (Statement stmt = FabricaDeConexao.criaStatement()){
             System.out.println("Criando banco de dados!");

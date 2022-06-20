@@ -17,11 +17,21 @@ public class Atendimento {
     private String receituario;
 
 
-    public Atendimento(Animal animal, Veterinario veterinario) {
-        data =  LocalDateTime.now();
+
+    public Atendimento(Long id, LocalDateTime data, Animal animal, Veterinario veterinario, String queixa, String diagnostico, String receituario) {
+        this.id = id;
+        this.data = data;
         this.animal = animal;
         this.veterinario = veterinario;
+        this.queixa = queixa;
+        this.diagnostico = diagnostico;
+        this.receituario = receituario;
     }
+
+    public Atendimento(Animal animal, Veterinario veterinario, String queixa, String diagnostico, String receituario) {
+        this(null, LocalDateTime.now(), animal, veterinario, queixa, diagnostico, receituario);
+    }
+
 
     public Long getId() {
         return this.id;

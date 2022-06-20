@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import com.vettodos.model.domain.entities.registro_estoque.RegistroEstoque;
 import com.vettodos.model.domain.usecases.registro_estoque.RegistroEstoqueDAO;
 
-public class SQLRegistroEstoque implements RegistroEstoqueDAO {
+public class SQLRegistroEstoqueDAO implements RegistroEstoqueDAO {
 
     
     @Override
